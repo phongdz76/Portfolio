@@ -232,12 +232,12 @@ section{
 .social-media{
     display: flex;
     justify-content: space-between;
-    width: 220px;
+    width: 300px;
     height: 45px;
 }
 
 .social-media a{
-    width: 42px;
+    width: 40px;
     height: 42px;
     font-size: 1.5rem;
     color: var(--main-color);
@@ -333,7 +333,7 @@ section{
     left: 50%;
     transform-origin: 0 245px;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 600;
     font-family: 'Work Sans', sans-serif;
     text-transform: uppercase;
     color: #333;
@@ -349,42 +349,136 @@ section{
     }
 }
 
-/* Điều chỉnh góc xoay cho từng chữ - phân bố đều 10.286 độ */
+/* Điều chỉnh góc xoay cho từng chữ - phân bố đều 10.588 độ */
 .text b:nth-child(1) { transform: rotate(0deg); }
-.text b:nth-child(2) { transform: rotate(10.286deg); }
-.text b:nth-child(3) { transform: rotate(20.572deg); }
-.text b:nth-child(4) { transform: rotate(30.858deg); }
-.text b:nth-child(5) { transform: rotate(41.144deg); }
-.text b:nth-child(6) { transform: rotate(51.43deg); }
-.text b:nth-child(7) { transform: rotate(61.716deg); }
-.text b:nth-child(8) { transform: rotate(72.002deg); }
-.text b:nth-child(9) { transform: rotate(82.288deg); }
-.text b:nth-child(10) { transform: rotate(92.574deg); }
-.text b:nth-child(11) { transform: rotate(102.86deg); }
-.text b:nth-child(12) { transform: rotate(113.146deg); }
-.text b:nth-child(13) { transform: rotate(123.432deg); }
-.text b:nth-child(14) { transform: rotate(133.718deg); }
-.text b:nth-child(15) { transform: rotate(144.004deg); }
-.text b:nth-child(16) { transform: rotate(154.29deg); }
-.text b:nth-child(17) { transform: rotate(164.576deg); }
-.text b:nth-child(18) { transform: rotate(174.862deg); }
-.text b:nth-child(19) { transform: rotate(185.148deg); }
-.text b:nth-child(20) { transform: rotate(195.434deg); }
-.text b:nth-child(21) { transform: rotate(205.72deg); }
-.text b:nth-child(22) { transform: rotate(216.006deg); }
-.text b:nth-child(23) { transform: rotate(226.292deg); }
-.text b:nth-child(24) { transform: rotate(236.578deg); }
-.text b:nth-child(25) { transform: rotate(246.864deg); }
-.text b:nth-child(26) { transform: rotate(257.15deg); }
-.text b:nth-child(27) { transform: rotate(267.436deg); }
-.text b:nth-child(28) { transform: rotate(277.722deg); }
-.text b:nth-child(29) { transform: rotate(288.008deg); }
-.text b:nth-child(30) { transform: rotate(298.294deg); }
-.text b:nth-child(31) { transform: rotate(308.58deg); }
-.text b:nth-child(32) { transform: rotate(318.866deg); }
-.text b:nth-child(33) { transform: rotate(329.152deg); }
-.text b:nth-child(34) { transform: rotate(339.438deg); }
-.text b:nth-child(35) { transform: rotate(349.724deg); }
+.text b:nth-child(2) { transform: rotate(10.588deg); }
+.text b:nth-child(3) { transform: rotate(21.176deg); }
+.text b:nth-child(4) { transform: rotate(31.764deg); }
+.text b:nth-child(5) { transform: rotate(42.352deg); }
+.text b:nth-child(6) { transform: rotate(52.94deg); }
+.text b:nth-child(7) { transform: rotate(63.528deg); }
+.text b:nth-child(8) { transform: rotate(74.116deg); }
+.text b:nth-child(9) { transform: rotate(84.704deg); }
+.text b:nth-child(10) { transform: rotate(95.292deg); }
+.text b:nth-child(11) { transform: rotate(105.88deg); }
+.text b:nth-child(12) { transform: rotate(116.468deg); }
+.text b:nth-child(13) { transform: rotate(127.056deg); }
+.text b:nth-child(14) { transform: rotate(137.644deg); }
+.text b:nth-child(15) { transform: rotate(148.232deg); }
+.text b:nth-child(16) { transform: rotate(158.82deg); }
+.text b:nth-child(17) { transform: rotate(169.408deg); }
+.text b:nth-child(18) { transform: rotate(179.996deg); }
+.text b:nth-child(19) { transform: rotate(190.584deg); }
+.text b:nth-child(20) { transform: rotate(201.172deg); }
+.text b:nth-child(21) { transform: rotate(211.76deg); }
+.text b:nth-child(22) { transform: rotate(222.348deg); }
+.text b:nth-child(23) { transform: rotate(232.936deg); }
+.text b:nth-child(24) { transform: rotate(243.524deg); }
+.text b:nth-child(25) { transform: rotate(254.112deg); }
+.text b:nth-child(26) { transform: rotate(264.7deg); }
+.text b:nth-child(27) { transform: rotate(275.288deg); }
+.text b:nth-child(28) { transform: rotate(285.876deg); }
+.text b:nth-child(29) { transform: rotate(296.464deg); }
+.text b:nth-child(30) { transform: rotate(307.052deg); }
+.text b:nth-child(31) { transform: rotate(317.64deg); }
+.text b:nth-child(32) { transform: rotate(328.228deg); }
+.text b:nth-child(33) { transform: rotate(338.816deg); }
+.text b:nth-child(34) { transform: rotate(349.404deg); }
+
+/* about */
+.about{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.about .about-img{
+    position: relative;
+}
+
+.aboutHero{
+    box-shadow: 0px 0px 20px grey;
+    width: 90%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.about-content{
+    padding: 3rem 0;
+}
+
+.about-content h2{
+    color: var(--main-color);
+}
+
+.about-content h3{
+    font-size: 1.9rem;
+    line-height: 2rem;
+    margin: 1rem 0;
+}
+
+.about-content p{
+    color: var(--font-color);
+}
+
+.text-box p{
+    font-size: 1.1rem;
+    font-weight: 550;
+}
+
+.about-btn{
+    margin: 1rem 0;
+}
+
+.about-btn button,.cvContent a{
+    background: var(--gradient-white-bg2);
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #000;
+    box-shadow: rgba(60,64,67,0.3) 0px 1px 2px 0px,
+                 rgba(60,64,67,0.15) 0px 2px 6px 2px;
+
+    transition: all .3s ease;
+    margin-right: .5rem;
+    cursor: pointer;
+}
+
+.about-btn button.active{
+    background: var(--gradient-color-bg);
+    color: #fff;
+}
+
+.text-box{
+    margin: 1.5rem 0;
+}
+
+.content-btn > .content:not(:first-child){
+    display: none;
+}
+
+.about-bt button:hover{
+    box-shadow: var(--hover-box-shadow);
+}
+
+.cvContent{
+    margin-top: 1.5rem;
+}
+
+/* services */
+
+
+
+
+
+
+
+
+
+
 
 
 
