@@ -1,0 +1,433 @@
+/* Common Variables */
+:root {
+    --mobile-padding: 20px;
+    --tablet-padding: 40px;
+}
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+    .home {
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 2rem;
+    }
+
+    .hero-info {
+        flex: 1;
+        padding-right: 50px;
+    }
+
+    .img-hero {
+        flex: 1;
+    }
+}
+
+/* Desktop (992px to 1199px) */
+@media (max-width: 1199px) {
+    section {
+        padding: 70px 5%;
+    }
+
+    .home {
+        padding-top: 120px;
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .hero-info h1 {
+        font-size: 3rem;
+    }
+
+    .anhinfo {
+        width: 350px;
+        height: 350px;
+    }
+
+    .rotate-text {
+        width: 440px;
+        height: 440px;
+    }
+}
+
+/* Tablet (768px to 991px) */
+@media (max-width: 991px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    .home {
+        padding-top: 100px;
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-info {
+        margin-top: 2rem;
+    }
+
+    .text-animate {
+        width: 100%;
+    }
+
+    .btn-box {
+        margin: 2rem auto 4rem;
+    }
+
+    .social-media {
+        margin: 0 auto;
+    }
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-img {
+        margin-bottom: 2rem;
+    }
+
+    .aboutHero {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .content-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Mobile Large (576px to 767px) */
+@media (max-width: 767px) {
+   
+    @media (max-width: 767px) {
+        /* Menu Icon Styles */
+        .menu-icon {
+            display: block;
+            z-index: 999;
+        }
+    
+        .menu-icon .bar,
+        .menu-icon::before,
+        .menu-icon::after {
+            display: block;
+            background: #000;
+        }
+    
+        /* Mobile Navigation Styles */
+        header .navlist {
+            position: fixed;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 1rem 8%;
+            background: var(--gradient-white-bg);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    
+        /* Active State for Mobile Nav */
+        header .navlist.active {
+            top: 100%;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+    
+        .navlist {
+            flex-direction: column;
+            padding: 1rem 0;
+        }
+    
+        .navlist li {
+            margin: 1.5rem 0;
+        }
+    
+        .navlist li a {
+            display: block;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+    
+        /* Menu Icon Animation */
+        .menu-icon.active .bar {
+            opacity: 0;
+        }
+    
+        .menu-icon.active::before {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+    
+        .menu-icon.active::after {
+            transform: rotate(45deg) translate(-8px, -8px);
+        }
+    
+        /* Adjust header for better mobile layout */
+        header {
+            padding: 15px 5%;
+        }
+    
+        .right-header {
+            gap: 1rem;
+        }
+    
+        /* Ensure menu stays above other content */
+        header {
+            z-index: 1000;
+        }
+    }
+    
+    /* Dark mode adjustments for mobile menu */
+    @media (prefers-color-scheme: dark) {
+        @media (max-width: 767px) {
+            header .navlist {
+                background: rgba(255, 255, 255, 0.95);
+            }
+    
+            .menu-icon .bar,
+            .menu-icon::before,
+            .menu-icon::after {
+                background: #000;
+            }
+        }
+    }
+
+    .hero-info h1 {
+        font-size: 2.5rem;
+    }
+
+    .text-animate h2 {
+        font-size: 1.2rem;
+    }
+
+    .btn-box {
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn-box .btn, 
+    .btn-box .d-CV {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .anhinfo {
+        width: 280px;
+        height: 280px;
+    }
+
+    .rotate-text {
+        width: 370px;
+        height: 370px;
+    }
+
+    .text b {
+        font-size: 0.9rem;
+        transform-origin: 0 185px;
+    }
+}
+
+/* Mobile Small (575px and below) */
+@media (max-width: 575px) {
+    header {
+        padding: 10px var(--mobile-padding);
+    }
+
+    header .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero-info h1 {
+        font-size: 2rem;
+    }
+
+    .hero-info h3 {
+        font-size: 1rem;
+    }
+
+    .hero-info p {
+        font-size: 0.9rem;
+    }
+
+    .social-media {
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .anhinfo {
+        width: 240px;
+        height: 240px;
+    }
+
+    .rotate-text {
+        width: 330px;
+        height: 330px;
+    }
+
+    .text b {
+        transform-origin: 0 165px;
+        font-size: 0.8rem;
+    }
+
+    .about-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .text-box p {
+        font-size: 1rem;
+    }
+}
+
+/* Animation Adjustments for Mobile */
+@media (max-width: 767px) {
+    @keyframes rotateText {
+        0% {
+            transform: rotate(360deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    .rotate-text .text {
+        animation: rotateText 40s linear infinite;
+    }
+}
+
+/* Additional Features */
+@media (prefers-reduced-motion: reduce) {
+    .rotate-text .text,
+    .img-hero {
+        animation: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --gradient-white-bg: rgba(255, 255, 255, 0.1);
+        --gradient-white-bg2: rgba(255, 255, 255, 0.05);
+    }
+
+    header {
+        background: #f1f6fb;
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Responsive Services */
+@media (max-width: 768px) {
+    .servicesItem {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .icon-services {
+        padding: 30px 20px;
+        min-height: 350px;
+    }
+
+    .icon-services i {
+        width: 70px;
+        height: 70px;
+        font-size: 2.4rem;
+    }
+
+    .icon-services h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Responsive Projects */
+@media (max-width: 768px) {
+    .projects-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    .projects-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-section {
+        padding: 40px 15px;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+    }
+
+    .github-link {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+}
+/* Responsive Skills */
+@media screen and (max-width: 1024px) {
+    .skills-container {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .heading {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blog {
+        padding: 60px 0;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .skill {
+        padding: 1.5rem;
+    }
+
+    .percentage {
+        font-size: 2.5rem;
+    }
+
+    .skill-name {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .main-text span {
+        font-size: 1rem;
+    }
+}
