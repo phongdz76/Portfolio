@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media_query.css">
-    <link rel="stylesheet" href="mediaqueries.css" />
+    <link rel="stylesheet" href="mediaqueries.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <title>Portfolio website</title>
     <link rel="shortcut icon" href="/images/z5944286235729_301d791e77cc768cc3db60e586b99da8.jpg" type="image/x-icon">
     <!-- boxicon css link -->
@@ -27,7 +30,7 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="right-header">
-                <a href="#" class="btn">Let's Chat <i class="bx bx-message-dots"></i></a>
+                <a href="#contact" class="btn">Let's Chat <i class="bx bx-message-dots"></i></a>
                 <div class="menu-icon">
                     <div class="bar"></div>
                 </div>
@@ -44,9 +47,8 @@
                     </h2>
                 </div>
 
-                <p>Xin chào, tôi là Phong, một người đam mê sáng tạo và không ngừng học hỏi. Tôi yêu thích việc khám phá
-                    những điều mới và luôn tìm cách vượt qua giới hạn bản thân. Với tư duy tích cực, tôi tin rằng mỗi thách
-                    thức đều là cơ hội để phát triển và mang lại giá trị cho mọi người xung quanh.</p>
+                <p>Hello, I'm Phong, a passionate and lifelong learner. I love exploring new things and always strive to push my boundaries. 
+                    With a positive mindset, I believe that every challenge is an opportunity to grow and make a positive impact on those around me.</p>
 
                 <div class="btn-box">
                     <a href="#contact" class="btn">Hire Me Now! <i
@@ -130,79 +132,23 @@
             </div>
         </section>
 
-        <section class="about" id="about">
-            <div class="about-img">
-                <img src="/images/IMG_2614.JPG" alt="" class="aboutHero">
-            </div>
-
+        <section class="about-section about" id="about">
             <div class="about-content">
-                <h2 class="heading">About Me</h2>
+                <h2 class="about-info">About Me</h2>
                 <h3>2 Year's Experience on Product Design</h3>
-                <p>Frontend Developer là người tạo ra giao diện trực quan và tương tác cho các website và ứng dụng, giúp
-                    người dùng có trải nghiệm trực tuyến tuyệt vời.</p>
-
-
-                <div class="content-btn">
-                    <div class="content">
-                        <div class="text-box">
-                            <p>User Experience Design - UI/UX</p>
-                            <span>Delight the user and make it work.</span>
-                        </div>
-
-                        <div class="text-box">
-                            <p>Web & User InterFace Design - Developer</p>
-                            <span>Website, Web Experience</span>
-                        </div>
-
-                        <div class="text-box">
-                            <p>Interation Desing - Animation</p>
-                            <span>I like move it move it</span>
-                        </div>
-                    </div>
-
-                    <div class="content">
-                        <div class="text-box">
-                            <p>Web Design Award</p>
-                            <span>Award for creativity and user experience</span>
-                        </div>
-
-
-                        <div class="text-box">
-                            <p>Code and Development Award</p>
-                            <span>Exceptional coding skills and development techniques</span>
-                        </div>
-
-                        <div class="text-box">
-                            <p>Hackathons and coding Competiotions</p>
-                            <span>Participating in hackathons and coding</span>
-                        </div>
-                    </div>
-
-
-                    <div class="content">
-                        <div class="text-box">
-                            <p>Online Courses and Bootcamps</p>
-                            <span>Delight the user and make it work.</span>
-                        </div>
-
-
-                        <div class="text-box">
-                            <p>Interships and Work Experiecnce</p>
-                            <span>Website, Web Experiecnce,...</span>
-                        </div>
-
-                        <div class="text-box">
-                            <p>Bachelor's Degree in Computer Science</p>
-                            <span>I like move it and move it</span>
-                        </div>
-                    </div>
-                </div>
-
+                <p>As a versatile full-stack developer, I specialize in crafting seamless user experiences across both web and mobile platforms. <br> 
+                    <br>With a strong foundation in frontend development using HTML, CSS, and JavaScript, I have a passion for creating visually appealing and intuitive interfaces. <br> 
+                    <br>Additionally, my experience in Android development allows me to extend my expertise to the mobile realm, where I build robust and high-performing applications. I am skilled in Java    <br> 
+                </p>
                 <div class="cvContent">
                     <a href="/images/CV.pdf" target="_blank" class="btn d-CV">Download CV<i class="bx bx-download"></i></a>
                 </div>
             </div>
+            <div class="about-img">
+                <img src="/images/IMG_2614.JPG" alt="" class="aboutHero">
+            </div>
         </section>
+
 
     <section class="services" id="services">
         <div class="main-text">
@@ -214,12 +160,10 @@
             <div class="servicesItem">
 
                 <div class="icon-services">
-                    <i class="bx bx-layer"></i>
+                    <i class="bx bx-mobile-alt"></i>
                     <span></span>
                     <h3>App Development</h3>
-                    <p>App development là quá trình tạo ra phần mềm cho thiết bị di động như điện thoại thông minh hoặc
-                        máy tính bảng, bao gồm các giai đoạn từ thiết kế, lập trình đến triển khai. Ứng dụng có thể được
-                        phát triển cho các hệ điều hành như iOS, Android hoặc đa nền tảng.</p>
+                    <p>App development is the process of creating software for mobile devices such as smartphones or tablets, including stages from design, programming to deployment. Applications can be developed for operating systems such as iOS, Android or multi-platform.</p>
                     <a href="#project" class="readMore">See More</a>
                 </div>
 
@@ -228,10 +172,8 @@
                     <i class="bx bx-code-alt"></i>
                     <span></span>
                     <h3>Web Development</h3>
-                    <p>Web development là quá trình xây dựng và duy trì các trang web hoặc ứng dụng web, bao gồm cả
-                        front-end (giao diện người dùng) và back-end (xử lý phía máy chủ). Nó sử dụng nhiều công nghệ
-                        như HTML, CSS, JavaScript, và các ngôn ngữ lập trình khác để tạo ra các website tương tác và
-                        thân thiện với người dùng.</p>
+                    <p>Web development is the process of building and maintaining websites or web applications, including both front-end (user interface) and back-end (server-side processing). It utilizes various technologies such as HTML, CSS, JavaScript, and other programming languages to create interactive and user-friendly websites.
+                    </p>
                     <a href="#project" class="readMore">See More</a>
                 </div>
 
@@ -239,20 +181,7 @@
                     <i class="bx bx-desktop"></i>
                     <span></span>
                     <h3>UI/ UX Design</h3>
-                    <p>UI/UX Design là quá trình thiết kế giao diện và trải nghiệm người dùng, nhằm tạo ra sản phẩm dễ
-                        sử dụng, hấp dẫn và hiệu quả. UI tập trung vào hình thức và tính thẩm mỹ, trong khi UX tập trung
-                        vào cảm nhận và trải nghiệm của người dùng khi tương tác với sản phẩm.</p>
-                    <a href="#project" class="readMore">See More</a>
-                </div>
-
-
-                <div class="icon-services">
-                    <i class="bx bx-mobile-alt"></i>
-                    <span></span>
-                    <h3>Moblie Development</h3>
-                    <p>Digital marketing là chiến lược tiếp thị trực tuyến sử dụng các kênh kỹ thuật số như mạng xã hội,
-                        email, SEO, và quảng cáo trực tuyến để quảng bá sản phẩm hoặc dịch vụ. Mục tiêu của nó là thu
-                        hút khách hàng, tăng cường nhận diện thương hiệu và thúc đẩy doanh số thông qua internet.</p>
+                    <p>UI/UX Design is the process of designing the user interface and user experience to create products that are easy to use, attractive, and efficient. UI focuses on form and aesthetics, while UX focuses on the user's feelings and experiences when interacting with the product.</p>
                     <a href="#project" class="readMore">See More</a>
                 </div>
             </div>
@@ -271,62 +200,33 @@
             
             <div class="project-card">
                 <div class="project-image">
-                    <img src="/images/68695156-white-office-desk-table-with-laptop-calculator-smartphone-file-and-glass-top-view-with-copy-space.jpg" alt="Project One - Communication Tool">
+                    <img src="/images/project1.jpg" alt="Project One - Communication Tool">
                 </div>
-                <h3 class="project-title">Project One</h3>
+                <h3 class="project-title">Portfolio</h3>
                 <div class="project-links">
-                    <a href="#" class="github-link">Github</a>
+                    <a href="https://github.com/phongdz76/Portfolio" class="github-link">Github</a>
                 </div>
             </div>
 
             
             <div class="project-card">
                 <div class="project-image">
-                    <img src="/images/68695156-white-office-desk-table-with-laptop-calculator-smartphone-file-and-glass-top-view-with-copy-space.jpg" alt="Project Two - Reminder App">
+                    <img src="/images/project2.jpg" alt="Project Two - Reminder App">
                 </div>
-                <h3 class="project-title">Project Two</h3>
+                <h3 class="project-title">TruyenHay</h3>
                 <div class="project-links">
-                    <a href="#" class="github-link">Github</a>
+                    <a href="https://github.com/phongdz76/frontend" class="github-link">Github</a>
                 </div>
             </div>
 
             
             <div class="project-card">
                 <div class="project-image">
-                    <img src="/images/68695156-white-office-desk-table-with-laptop-calculator-smartphone-file-and-glass-top-view-with-copy-space.jpg" alt="Project Three - Food App">
+                    <img src="/images/project3.jpg" alt="Project Three - Food App">
                 </div>
-                <h3 class="project-title">Project Three</h3>
+                <h3 class="project-title">Design App Moblie Manga</h3>
                 <div class="project-links">
-                    <a href="#" class="github-link">Github</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/68695156-white-office-desk-table-with-laptop-calculator-smartphone-file-and-glass-top-view-with-copy-space.jpg" alt="Project Three - Food App">
-                </div>
-                <h3 class="project-title">Project Three</h3>
-                <div class="project-links">
-                    <a href="#" class="github-link">Github</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/68695156-white-office-desk-table-with-laptop-calculator-smartphone-file-and-glass-top-view-with-copy-space.jpg" alt="Project Three - Food App">
-                </div>
-                <h3 class="project-title">Project Three</h3>
-                <div class="project-links">
-                    <a href="#" class="github-link">Github</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/68695156-white-office-desk-table-with-laptop-calculator-smartphone-file-and-glass-top-view-with-copy-space.jpg" alt="Project Three - Food App">
-                </div>
-                <h3 class="project-title">Project Three</h3>
-                <div class="project-links">
-                    <a href="#" class="github-link">Github</a>
+                    <a href="https://www.figma.com/design/VXsO2zDikFRcZQoYJ2xKzn/Manga-APP?node-id=725-18349&t=1Zisl5o3ZhacwV42-1" class="github-link">Figma</a>
                 </div>
             </div>
         </div>
@@ -408,6 +308,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
 
     <script src="main.js"></script>
+
 </body>
 
 </html>
