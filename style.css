@@ -178,21 +178,19 @@ section{
     background-position: 0 0;
     transition: .6s;
     letter-spacing: 2px;
-    animation: moveText 3s linear infinite;
-    animation-delay: 2s;
+    position: relative;
+    min-height: 2rem; /* Đảm bảo không bị nhảy layout */
 }
 
-.text-animate h2::before{
-    content: "";
+.text-animate h2::after{
+    content: "|";
     position: absolute;
-    top: 7px;
-    left: -3px;
-    width: 0;
-    height: 70%;
-    border-right: 2px solid var(--main-color);
-    animation: moveCursorText 3s linear infinite;
-    animation-delay: 2s;
+    color: var(--main-color);
+    font-weight: 700;
+    animation: blink 1s infinite;
+    -webkit-text-stroke: 0;
 }
+
 
 .hero-info p{
    font-size: 15px;
