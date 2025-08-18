@@ -739,12 +739,14 @@ section{
 
 .skills-container {
     display: grid;
-    background: white;
+    background: #faf5f0; /* Nền ấm áp như Hu Tao */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(180, 50, 25, 0.1); /* Shadow Hu Tao */
 }
 
 .skill {
@@ -786,7 +788,7 @@ section{
 }
 
 .skill-name {
-    color: #B8341F; /* Màu đỏ nâu đậm như Hu Tao */
+    color: #ec5460;
     font-size: 1.2rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -804,7 +806,7 @@ section{
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #DC4B23, #B8341F); /* Gradient Hu Tao */
+    background: linear-gradient(90deg, #e91e63, #9c27b0);
     transition: width 0.3s ease;
 }
 
@@ -813,7 +815,7 @@ section{
 }
 
 .skill:hover .skill-name {
-    color: #DC4B23; /* Màu chính Hu Tao khi hover */
+    color: #e91e63;
     transform: scale(1.05);
 }
 
@@ -933,15 +935,15 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 60px;
-    height: 30px;
+    width: 120px;
+    height: 60px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 50px;
     position: relative;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    padding: 0 5px;
+    padding: 0 10px;
 }
 
 .dark-mode-label:hover {
@@ -951,7 +953,7 @@ footer p {
 
 .sun-icon,
 .moon-icon {
-    font-size: 16px;
+    font-size: 28px;
     color: #fff;
     z-index: 2;
     transition: all 0.3s ease;
@@ -959,10 +961,10 @@ footer p {
 
 .toggle-ball {
     position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 24px;
-    height: 24px;
+    top: 6px;
+    left: 6px;
+    width: 48px;
+    height: 48px;
     background: linear-gradient(135deg, #ffd700, #ff8c00);
     border-radius: 50%;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -974,7 +976,7 @@ footer p {
 }
 
 .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-    transform: translateX(30px);
+    transform: translateX(60px);
     background: linear-gradient(135deg, #74b9ff, #0984e3);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
@@ -1308,6 +1310,94 @@ body.dark-mode .text b {
 
 body.dark-mode .rotate-text span {
     border: 2px solid #404040;
+}
+
+/* Responsive Design for Dark Mode Toggle */
+@media screen and (max-width: 768px) {
+    .dark-mode-toggle {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .dark-mode-label {
+        width: 110px;
+        height: 55px;
+        padding: 0 8px;
+    }
+    
+    .toggle-ball {
+        width: 43px;
+        height: 43px;
+        top: 6px;
+        left: 6px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(55px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dark-mode-toggle {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .dark-mode-label {
+        width: 100px;
+        height: 50px;
+        padding: 0 7px;
+    }
+    
+    .toggle-ball {
+        width: 40px;
+        height: 40px;
+        top: 5px;
+        left: 5px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(50px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .dark-mode-toggle {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .dark-mode-label {
+        width: 90px;
+        height: 45px;
+        padding: 0 6px;
+    }
+    
+    .toggle-ball {
+        width: 35px;
+        height: 35px;
+        top: 5px;
+        left: 5px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(45px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 20px;
+    }
 }
 
 
