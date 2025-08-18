@@ -1,4 +1,203 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Dark Mode Functionality
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+        body.classList.add('dark-mode');
+        darkModeToggle.checked = true;
+    }
+    
+    // Toggle dark mode
+    darkModeToggle.addEventListener('change', function() {
+        // Add ripple effect
+        createRippleEffect();
+        
+        if (this.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+            
+            // Add transition effect with page fade
+            body.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            // Animate elements sequentially
+            animateElementsToTheme('dark');
+            
+            setTimeout(() => {
+                body.style.transition = '';
+            }, 400);
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+            
+            // Add transition effect with page fade
+            body.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            // Animate elements sequentially
+            animateElementsToTheme('light');
+            
+            setTimeout(() => {
+                body.style.transition = '';
+            }, 400);
+        }
+    });
+    
+    // Create ripple effect when toggle is clicked
+    function createRippleEffect() {
+        const toggle = document.querySelector('.dark-mode-label');
+        const ripple = document.createElement('div');
+        
+        ripple.style.position = 'absolute';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.animation = 'ripple 0.6s linear';
+        ripple.style.left = '50%';
+        ripple.style.top = '50%';
+        ripple.style.width = '20px';
+        ripple.style.height = '20px';
+        ripple.style.marginLeft = '-10px';
+        ripple.style.marginTop = '-10px';
+        ripple.style.pointerEvents = 'none';
+        
+        toggle.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    }
+    
+    // Animate elements when theme changes
+    function animateElementsToTheme(theme) {
+        const elements = [
+            'header',
+            '.hero-info',
+            '.img-hero',
+            '.about',
+            '.services',
+            '.project',
+            '.blog',
+            '#contact'
+        ];
+        
+        elements.forEach((selector, index) => {
+            const element = document.querySelector(selector);
+            if (element) {
+                setTimeout(() => {
+                    element.style.transform = 'translateY(-5px)';
+                    element.style.transition = 'transform 0.2s ease';
+                    
+                    setTimeout(() => {
+                        element.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 50);
+            }
+        });
+    }
+    
+    // Add floating animation to dark mode toggle
+    const darkModeToggleElement = document.querySelector('.dark-mode-toggle');
+    let floatAnimation;
+    
+    function startFloating() {
+        let start = Date.now();
+        floatAnimation = requestAnimationFrame(function animate() {
+            let timePassed = Date.now() - start;
+            let progress = timePassed / 3000; // 3 second cycle
+            
+            if (progress > 1) {
+                start = Date.now();
+                progress = 0;
+            }
+            
+            let y = Math.sin(progress * Math.PI * 2) * 3; // Float 3px up and down
+            darkModeToggleElement.style.transform = `translateY(${y}px)`;
+            
+            floatAnimation = requestAnimationFrame(animate);
+        });
+    }
+    
+    startFloating();
+    
+    // Add keyboard support for dark mode toggle
+    document.addEventListener('keydown', function(e) {
+        // Toggle with Ctrl + D
+        if (e.ctrlKey && e.key === 'd') {
+            e.preventDefault();
+            darkModeToggle.checked = !darkModeToggle.checked;
+            darkModeToggle.dispatchEvent(new Event('change'));
+        }
+    });
+    
+    // Add mouse tracking for theme transition effect
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', function(e) {
+        mouseX = (e.clientX / window.innerWidth) * 100;
+        mouseY = (e.clientY / window.innerHeight) * 100;
+        document.documentElement.style.setProperty('--mouse-x', mouseX + '%');
+        document.documentElement.style.setProperty('--mouse-y', mouseY + '%');
+    });
+    
+    // Add visual feedback when hovering over dark mode toggle
+    darkModeToggleElement.addEventListener('mouseenter', function() {
+        this.style.animation = 'none';
+        this.style.transform = 'translateY(-3px) scale(1.05)';
+    });
+    
+    darkModeToggleElement.addEventListener('mouseleave', function() {
+        this.style.animation = '';
+        this.style.transform = '';
+        startFloating();
+    });
+    
+    // Add click feedback
+    darkModeToggleElement.addEventListener('mousedown', function() {
+        this.style.transform = 'translateY(-1px) scale(0.98)';
+    });
+    
+    darkModeToggleElement.addEventListener('mouseup', function() {
+        this.style.transform = 'translateY(-3px) scale(1.05)';
+    });
+    
+    // Smooth scroll behavior enhancement for dark mode
+    function enhanceSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+    
+    enhanceSmoothScroll();
+    
+    // Listen for system theme changes
+    prefersDarkScheme.addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+            if (e.matches) {
+                body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+            } else {
+                body.classList.remove('dark-mode');
+                darkModeToggle.checked = false;
+            }
+        }
+    });
+
     // Skill animation class
     class SkillAnimation {
         constructor(element) {

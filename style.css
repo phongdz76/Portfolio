@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Smooth transitions for all elements */
+*,
+*::before,
+*::after {
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -54,6 +64,7 @@ header .logo{
 span{
     background: var(--gradient-color-bg);
     -webkit-background-clip:text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -73,6 +84,7 @@ ul.navlist{
 .navlist li a:hover,.navlist li a.active{
     background: var(--gradient-color-bg);
     -webkit-background-clip:text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -175,6 +187,7 @@ section{
     background: var(--gradient-color-bg);
     background-repeat: no-repeat;
     -webkit-background-clip: text;
+    background-clip: text;
     background-position: 0 0;
     transition: .6s;
     letter-spacing: 2px;
@@ -769,7 +782,7 @@ section{
     color: #e91e63;
     margin-bottom: 1rem;
     position: relative;
-    display: inline-block;
+    display: none; /* Ẩn percentage nhưng vẫn giữ trong DOM */
 }
 
 .percentage::after {
@@ -903,7 +916,408 @@ footer {
 
 footer p {
     text-align: center;
-  }
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.dark-mode-checkbox {
+    display: none;
+}
+
+.dark-mode-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    height: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 0 5px;
+}
+
+.dark-mode-label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.sun-icon,
+.moon-icon {
+    font-size: 16px;
+    color: #fff;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.toggle-ball {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+    transform: translateX(30px);
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label .sun-icon {
+    opacity: 0.3;
+    transform: rotate(180deg);
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.dark-mode-label .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.dark-mode-label .moon-icon {
+    opacity: 0.3;
+    transform: rotate(-180deg);
+}
+
+/* Ripple effect animation */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Pulse effect for dark mode toggle */
+.dark-mode-toggle:hover .dark-mode-label {
+    animation: pulse-glow 1.5s infinite;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4), 0 0 0 8px rgba(102, 126, 234, 0.1);
+    }
+    100% {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Improved hover effects for dark mode */
+.dark-mode-toggle:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.dark-mode-toggle:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Theme transition overlay */
+body.theme-transitioning::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                transparent 0%, 
+                rgba(0, 0, 0, 0.1) 50%, 
+                rgba(0, 0, 0, 0.2) 100%);
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    animation: themeTransition 0.4s ease-out;
+}
+
+@keyframes themeTransition {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Improved transitions for better UX */
+header,
+.home,
+.about,
+.services,
+.project,
+.blog,
+#contact,
+footer {
+    transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn,
+.social-media a,
+.icon-services,
+.project-card,
+.skill {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode header {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+    border-bottom: 1px solid #404040;
+}
+
+body.dark-mode .logo {
+    color: #fff;
+}
+
+body.dark-mode .navlist li a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .navlist li a:hover,
+body.dark-mode .navlist li a.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+body.dark-mode .btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+body.dark-mode .btn:hover {
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    transform: translateY(-2px);
+}
+
+body.dark-mode .home {
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+}
+
+body.dark-mode .hero-info h1,
+body.dark-mode .hero-info h3 {
+    color: #fff;
+}
+
+body.dark-mode .hero-info p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .text-animate h2 {
+    -webkit-text-stroke: 0.1vw #667eea;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+body.dark-mode .d-CV {
+    background: linear-gradient(135deg, #2d2d2d 0%, #404040 100%);
+    color: #fff;
+    border: 1px solid #555;
+}
+
+body.dark-mode .d-CV:hover {
+    background: linear-gradient(135deg, #404040 0%, #555 100%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .social-media a {
+    background: #2d2d2d;
+    color: #667eea;
+    border: 1px solid #404040;
+}
+
+body.dark-mode .social-media a:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+body.dark-mode .about {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0c0c0c 100%);
+}
+
+body.dark-mode .about-content h2 {
+    color: #667eea;
+}
+
+body.dark-mode .about-content h3 {
+    color: #fff;
+}
+
+body.dark-mode .about-content p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .allServices {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0c0c0c 100%);
+}
+
+body.dark-mode .icon-services {
+    background: rgba(45, 45, 45, 0.9);
+    border: 1px solid #404040;
+    backdrop-filter: blur(10px);
+}
+
+body.dark-mode .icon-services:hover {
+    background: rgba(55, 55, 55, 0.95);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .icon-services h3 {
+    color: #fff;
+}
+
+body.dark-mode .icon-services p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .project {
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+}
+
+body.dark-mode .project-card {
+    background: #2d2d2d;
+    border: 1px solid #404040;
+}
+
+body.dark-mode .project-card:hover {
+    background: #404040;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .project-title {
+    color: #fff;
+}
+
+body.dark-mode .github-link {
+    background: #404040;
+    color: #fff;
+    border: 2px solid #667eea;
+}
+
+body.dark-mode .github-link:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+body.dark-mode .blog {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0c0c0c 100%);
+}
+
+body.dark-mode .skills-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0c0c0c 100%);
+}
+
+body.dark-mode .skill {
+    background: rgba(45, 45, 45, 0.8);
+    border: 1px solid #404040;
+}
+
+body.dark-mode .skill:hover {
+    background: rgba(55, 55, 55, 0.9);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .percentage {
+    color: #667eea;
+    display: none; /* Ẩn percentage trong dark mode */
+}
+
+body.dark-mode .skill-name {
+    color: #fff;
+}
+
+body.dark-mode #contact {
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+}
+
+body.dark-mode .title {
+    color: #667eea;
+}
+
+body.dark-mode .section__text__p1 {
+    color: #b0b0b0;
+}
+
+body.dark-mode .contact-info-upper-container {
+    background: #2d2d2d;
+    border: 1px solid #404040;
+}
+
+body.dark-mode .contact-info-container p {
+    color: #fff;
+}
+
+body.dark-mode .contact-info-container a {
+    color: #667eea;
+}
+
+body.dark-mode .contact-info-container a:hover {
+    color: #764ba2;
+}
+
+body.dark-mode footer {
+    background: #1a1a1a;
+    border-top: 1px solid #404040;
+}
+
+body.dark-mode footer p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .main-text .heading {
+    color: #667eea;
+}
+
+body.dark-mode .main-text span {
+    color: #b0b0b0;
+}
+
+body.dark-mode .text b {
+    color: #e0e0e0;
+}
+
+body.dark-mode .rotate-text span {
+    border: 2px solid #404040;
+}
+
+
   
 
 

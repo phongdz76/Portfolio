@@ -431,3 +431,138 @@
         font-size: 1rem;
     }
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    /* Ẩn hình tròn border trong rotate-text cho tablet */
+    .rotate-text span {
+        border: none !important;
+        background: transparent !important;
+    }
+    
+    .rotate-text span i {
+        display: none !important;
+    }
+}
+
+/* Responsive Dark Mode Toggle */
+@media (max-width: 768px) {
+    .dark-mode-toggle {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .dark-mode-label {
+        width: 50px;
+        height: 25px;
+    }
+    
+    .toggle-ball {
+        width: 19px;
+        height: 19px;
+        top: 3px;
+        left: 3px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(25px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 14px;
+    }
+    
+    /* Ẩn hình tròn border trong rotate-text khi responsive */
+    .rotate-text span {
+        border: none !important;
+        background: transparent !important;
+    }
+    
+    .rotate-text span i {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .dark-mode-toggle {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .dark-mode-label {
+        width: 45px;
+        height: 23px;
+    }
+    
+    .toggle-ball {
+        width: 17px;
+        height: 17px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(22px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 12px;
+    }
+    
+    /* Ẩn hình tròn border trong rotate-text khi responsive */
+    .rotate-text span {
+        border: none !important;
+        background: transparent !important;
+    }
+    
+    .rotate-text span i {
+        display: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    body.dark-mode {
+        background: #000;
+        color: #fff;
+    }
+    
+    body.dark-mode .icon-services,
+    body.dark-mode .project-card,
+    body.dark-mode .skill {
+        border: 2px solid #fff;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .dark-mode-toggle {
+        animation: none !important;
+    }
+}
+
+/* Focus styles for accessibility */
+.dark-mode-checkbox:focus + .dark-mode-label {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .dark-mode-toggle {
+        display: none !important;
+    }
+    
+    body.dark-mode {
+        background: white !important;
+        color: black !important;
+    }
+}
