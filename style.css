@@ -19,16 +19,16 @@
 }
 
 :root{
-    --bg-color:#e3edf7;
-    --gradient-white-bg:linear-gradient(0deg,#fff 0%,#edf4fa 51%,#e5eef7 100%);
-    --gradient-color-bg:linear-gradient(180deg,rgba(247,1,120,1)0%,
-                               rgba(160,8,156,1)51%,  
-                               rgba(99,13,178,1)100%);
-    --main-color:#e6006d;
-    --font-color:#90979f;
-    --hover-box-shadow: rgba(0,0,0,0.19)0px 10px 20px,
-                     rgba(0,0,0,0.23)0px 6px 6px;
-    --gradient-white-bg2:linear-gradient(98deg,#e5eef7 0%,#fff 100%);
+    --bg-color:#f5e6d3; /* Nền ấm áp màu cream như trang phục Hu Tao */
+    --gradient-white-bg:linear-gradient(0deg,#faf5f0 0%,#f5e6d3 51%,#f0d5b8 100%); /* Gradient ấm */
+    --gradient-color-bg:linear-gradient(180deg,rgba(220,75,35,1)0%, /* Đỏ cam Hu Tao */
+                               rgba(180,50,25,1)51%,  /* Nâu đỏ */
+                               rgba(140,35,15,1)100%); /* Nâu đậm */
+    --main-color:#DC4B23; /* Màu chính đỏ cam như Hu Tao */
+    --font-color:#8B4513; /* Màu font nâu đậm */
+    --hover-box-shadow: rgba(220,75,35,0.3)0px 10px 20px,
+                     rgba(180,50,25,0.2)0px 6px 6px; /* Shadow màu Hu Tao */
+    --gradient-white-bg2:linear-gradient(98deg,#f0d5b8 0%,#faf5f0 100%); /* Gradient phụ */
 }
 
 a{
@@ -748,14 +748,23 @@ section{
 }
 
 .skill {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(233, 30, 99, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     padding: 2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1; /* Sửa từ 0 thành 1 để hiển thị skills */
+    transform: translateY(0); /* Sửa từ 30px thành 0 */
+}
+
+.skill:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.2);
+    border-color: rgba(233, 30, 99, 0.3);
 }
 
 .skill::before {
@@ -776,35 +785,15 @@ section{
     z-index: 1;
 }
 
-.percentage {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #e91e63;
-    margin-bottom: 1rem;
-    position: relative;
-    display: none; /* Ẩn percentage nhưng vẫn giữ trong DOM */
-}
-
-.percentage::after {
-    content: '';
-    position: absolute;
-    width: 120%;
-    height: 120%;
-    top: -10%;
-    left: -10%;
-    border: 2px color(#f4d8dc #f4d8dc #f4d8dc #f4d8dc);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
 .skill-name {
-    color: #ec5460;
+    color: #B8341F; /* Màu đỏ nâu đậm như Hu Tao */
     font-size: 1.2rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
     padding-bottom: 10px;
+    transition: all 0.3s ease;
 }
 
 .skill-name::after {
@@ -815,8 +804,17 @@ section{
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #e91e63, #9c27b0);
+    background: linear-gradient(90deg, #DC4B23, #B8341F); /* Gradient Hu Tao */
     transition: width 0.3s ease;
+}
+
+.skill:hover .skill-name::after {
+    width: 100%;
+}
+
+.skill:hover .skill-name {
+    color: #DC4B23; /* Màu chính Hu Tao khi hover */
+    transform: scale(1.05);
 }
 
 .skill:hover {
@@ -1252,11 +1250,6 @@ body.dark-mode .skill {
 body.dark-mode .skill:hover {
     background: rgba(55, 55, 55, 0.9);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-}
-
-body.dark-mode .percentage {
-    color: #667eea;
-    display: none; /* Ẩn percentage trong dark mode */
 }
 
 body.dark-mode .skill-name {
