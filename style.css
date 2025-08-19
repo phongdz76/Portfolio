@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* Smooth transitions for all elements */
+/* Smooth transitions for all elements - Sử dụng timing chuẩn */
 *,
 *::before,
 *::after {
-    transition: background-color 0.4s ease, 
-                color 0.4s ease, 
-                border-color 0.4s ease, 
-                box-shadow 0.4s ease,
-                background 0.4s ease,
-                background-image 0.4s ease;
+    transition: background-color var(--transition-normal) var(--easing-standard), 
+                color var(--transition-normal) var(--easing-standard), 
+                border-color var(--transition-normal) var(--easing-standard), 
+                box-shadow var(--transition-normal) var(--easing-standard),
+                background var(--transition-normal) var(--easing-standard),
+                background-image var(--transition-normal) var(--easing-standard);
 }
 
 /* Enhanced transitions for specific elements */
@@ -30,14 +30,14 @@ footer,
 .contact-info-upper-container,
 .cvContent a,
 .readMore {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--transition-slow) var(--easing-standard);
 }
 
 /* Text elements transition */
 h1, h2, h3, h4, h5, h6, p, span, a {
-    transition: color 0.4s ease, 
-                background 0.4s ease,
-                background-image 0.4s ease;
+    transition: color var(--transition-normal) var(--easing-standard), 
+                background var(--transition-normal) var(--easing-standard),
+                background-image var(--transition-normal) var(--easing-standard);
 }
 
 *{
@@ -59,6 +59,26 @@ h1, h2, h3, h4, h5, h6, p, span, a {
     --hover-box-shadow: rgba(220,75,35,0.3)0px 10px 20px,
                      rgba(180,50,25,0.2)0px 6px 6px; /* Shadow màu Hu Tao */
     --gradient-white-bg2:linear-gradient(98deg,#f0d5b8 0%,#faf5f0 100%); /* Gradient phụ */
+    
+    /* Animation timing variables - Thống nhất toàn bộ website */
+    --transition-fast: 0.3s;
+    --transition-normal: 0.5s;
+    --transition-slow: 0.8s;
+    --transition-extra-slow: 1.2s;
+    
+    --animation-short: 0.6s;
+    --animation-normal: 1s;
+    --animation-long: 1.5s;
+    --animation-extra-long: 2s;
+    
+    --delay-small: 0.1s;
+    --delay-normal: 0.2s;
+    --delay-large: 0.3s;
+    --delay-extra-large: 0.5s;
+    
+    --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --easing-enter: cubic-bezier(0, 0, 0.2, 1);
+    --easing-exit: cubic-bezier(0.4, 0, 1, 1);
 }
 
 /* Dark mode CSS variables */
@@ -70,6 +90,22 @@ body.dark-mode {
     --font-color: #e0e0e0;
     --hover-box-shadow: rgba(102, 126, 234, 0.3) 0px 10px 20px, rgba(118, 75, 162, 0.2) 0px 6px 6px;
     --gradient-white-bg2: linear-gradient(98deg, #2d2d2d 0%, #1e1e1e 100%);
+    
+    /* Animation timing remains the same */
+    --transition-fast: 0.3s;
+    --transition-normal: 0.5s;
+    --transition-slow: 0.8s;
+    --transition-extra-slow: 1.2s;
+    
+    --animation-short: 0.6s;
+    --animation-normal: 1s;
+    --animation-long: 1.5s;
+    --animation-extra-long: 2s;
+    
+    --delay-small: 0.1s;
+    --delay-normal: 0.2s;
+    --delay-large: 0.3s;
+    --delay-extra-large: 0.5s;
 }
 
 a{
@@ -94,7 +130,7 @@ header{
     justify-content: space-between;
     background: var(--gradient-white-bg);
     z-index: 100;
-    transition: .3s;
+    transition: var(--transition-fast) var(--easing-standard);
 }
 
 header .logo{
@@ -2589,23 +2625,459 @@ body.dark-mode::-webkit-scrollbar-thumb:hover {
     background: #764ba2;
 }
 
+/* Animation styles cho các section - Timing chuẩn hóa */
+.section-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all var(--transition-slow) var(--easing-enter);
+    will-change: transform, opacity;
+}
 
+.section-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-  
+/* Animation cho từng loại section với hiệu ứng mượt hơn */
+.services.section-animate {
+    transform: translateX(-50px);
+    transition: all var(--transition-slow) var(--easing-enter);
+}
 
+.services.section-animate.animate-in {
+    transform: translateX(0);
+}
 
+.project.section-animate {
+    transform: translateX(50px);
+    transition: all var(--transition-slow) var(--easing-enter);
+}
 
+.project.section-animate.animate-in {
+    transform: translateX(0);
+}
 
+.blog.section-animate {
+    transform: translateY(50px) scale(0.95);
+    transition: all var(--animation-normal) var(--easing-enter);
+}
 
+.blog.section-animate.animate-in {
+    transform: translateY(0) scale(1);
+}
 
+/* Contact Section - Animation mới với timing chuẩn */
+.contact-section.section-animate {
+    transform: translateY(80px) rotateX(15deg);
+    opacity: 0;
+    transition: all var(--animation-normal) var(--easing-enter);
+    transform-origin: center bottom;
+    perspective: 1000px;
+}
 
+.contact-section.section-animate.animate-in {
+    transform: translateY(0) rotateX(0deg);
+    opacity: 1;
+}
 
+/* Animation cho các phần tử con - Timing đồng bộ */
+.services .servicesItem > div,
+.project .project-card,
+.blog .skill-category {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all var(--animation-short) var(--easing-enter);
+    will-change: transform, opacity;
+}
 
+/* Contact section có animation riêng biệt */
+.contact-section .contact-header {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+    transition: all var(--transition-slow) var(--easing-enter);
+}
 
+.contact-section .contact-card {
+    opacity: 0;
+    transform: translateX(-100px) rotateY(-45deg);
+    transition: all var(--transition-slow) var(--easing-enter);
+}
 
+.contact-section .contact-form-wrapper {
+    opacity: 0;
+    transform: translateX(100px) rotateY(45deg);
+    transition: all var(--animation-normal) var(--easing-enter);
+}
 
+.contact-section .floating-shape {
+    opacity: 0;
+    transform: scale(0) rotate(180deg);
+    transition: all var(--animation-normal) var(--easing-enter);
+}
 
+/* Animate in states */
+.services.animate-in .servicesItem > div,
+.project.animate-in .project-card,
+.blog.animate-in .skill-category {
+    opacity: 1;
+    transform: translateY(0);
+}
 
+.contact-section.animate-in .contact-header {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
 
- 
+.contact-section.animate-in .contact-card {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+}
+
+.contact-section.animate-in .contact-form-wrapper {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+}
+
+.contact-section.animate-in .floating-shape {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+/* Delay cho animation của các phần tử con - Timing chuẩn hóa */
+.services.animate-in .servicesItem > div:nth-child(1) { transition-delay: var(--delay-small); }
+.services.animate-in .servicesItem > div:nth-child(2) { transition-delay: var(--delay-normal); }
+.services.animate-in .servicesItem > div:nth-child(3) { transition-delay: var(--delay-large); }
+
+.project.animate-in .project-card:nth-child(1) { transition-delay: var(--delay-small); }
+.project.animate-in .project-card:nth-child(2) { transition-delay: var(--delay-normal); }
+.project.animate-in .project-card:nth-child(3) { transition-delay: var(--delay-large); }
+
+.blog.animate-in .skill-category:nth-child(1) { transition-delay: var(--delay-small); }
+.blog.animate-in .skill-category:nth-child(2) { transition-delay: var(--delay-normal); }
+.blog.animate-in .skill-category:nth-child(3) { transition-delay: var(--delay-large); }
+.blog.animate-in .skill-category:nth-child(4) { transition-delay: calc(var(--delay-large) + var(--delay-small)); }
+.blog.animate-in .skill-category:nth-child(5) { transition-delay: var(--delay-extra-large); }
+
+/* Contact section delays - Sequence chuẩn hóa */
+.contact-section.animate-in .contact-header { transition-delay: var(--delay-small); }
+.contact-section.animate-in .contact-card:nth-child(1) { transition-delay: var(--delay-large); }
+.contact-section.animate-in .contact-card:nth-child(2) { transition-delay: calc(var(--delay-large) + var(--delay-small)); }
+.contact-section.animate-in .contact-card:nth-child(3) { transition-delay: var(--delay-extra-large); }
+.contact-section.animate-in .contact-form-wrapper { transition-delay: calc(var(--delay-extra-large) + var(--delay-small)); }
+.contact-section.animate-in .floating-shape.shape-1 { transition-delay: var(--delay-normal); }
+.contact-section.animate-in .floating-shape.shape-2 { transition-delay: calc(var(--delay-normal) + var(--delay-normal)); }
+.contact-section.animate-in .floating-shape.shape-3 { transition-delay: calc(var(--delay-extra-large) + var(--delay-small)); }
+.contact-section.animate-in .floating-shape.shape-4 { transition-delay: calc(var(--delay-extra-large) + var(--delay-large)); }
+
+/* Reset animation khi scroll ra khỏi viewport */
+.services:not(.animate-in) .servicesItem > div,
+.project:not(.animate-in) .project-card,
+.blog:not(.animate-in) .skill-category,
+.contact-section:not(.animate-in) .contact-header,
+.contact-section:not(.animate-in) .contact-card,
+.contact-section:not(.animate-in) .contact-form-wrapper,
+.contact-section:not(.animate-in) .floating-shape {
+    transition-delay: 0s;
+}
+
+/* Hover effects cho các animated sections */
+.section-animate.animate-in:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+.services.section-animate.animate-in:hover {
+    transform: translateX(0) scale(1.02);
+}
+
+.project.section-animate.animate-in:hover {
+    transform: translateX(0) scale(1.02);
+}
+
+.blog.section-animate.animate-in:hover {
+    transform: translateY(0) scale(1.02);
+}
+
+/* Improved animations với stagger effect */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Alternative animation styles */
+.services.animate-in .icon-services {
+    animation: fadeInLeft 0.6s ease forwards;
+}
+
+.project.animate-in .project-card {
+    animation: fadeInRight 0.6s ease forwards;
+}
+
+.blog.animate-in .skill-category {
+    animation: scaleIn 0.6s ease forwards;
+}
+
+.contact-section.animate-in .contact-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Animation cho title và subtitle - Timing chuẩn hóa */
+.section-animate .main-text {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all var(--transition-slow) var(--easing-enter);
+}
+
+.section-animate.animate-in .main-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-animate .heading {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all var(--animation-normal) var(--easing-enter);
+    transition-delay: var(--delay-normal);
+}
+
+.section-animate.animate-in .heading {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-animate .main-text span {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all var(--transition-slow) var(--easing-enter);
+    transition-delay: calc(var(--delay-normal) + var(--delay-normal));
+}
+
+.section-animate.animate-in .main-text span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Bounce effect cho heading khi hover - Timing chuẩn */
+.section-animate.animate-in .heading:hover {
+    animation: headingBounce var(--animation-short) ease-in-out;
+}
+
+@keyframes headingBounce {
+    0%, 20%, 60%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Parallax effect khi scroll - Tối ưu cho scroll lên xuống */
+.section-animate.animate-in {
+    animation: none; /* Tắt animation cũ */
+}
+
+/* Smooth scroll behavior */
+.section-animate {
+    transform-origin: center;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Enhanced floating effect chỉ khi trong viewport - Timing chuẩn */
+.section-animate.animate-in:hover {
+    animation: gentleFloat var(--animation-extra-long) ease-in-out infinite;
+}
+
+/* Contact section có hover effect riêng */
+.contact-section.animate-in:hover {
+    animation: contactFloat calc(var(--animation-extra-long) + var(--animation-normal)) ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes contactFloat {
+    0%, 100% {
+        transform: translateY(0) rotateX(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotateX(1deg);
+    }
+}
+
+/* Animation cho form elements khi contact section animate in */
+.contact-section.animate-in .form-group {
+    animation: formSlideIn var(--animation-short) ease forwards;
+}
+
+.contact-section.animate-in .form-group:nth-child(1) { animation-delay: calc(var(--delay-extra-large) + var(--delay-large)); }
+.contact-section.animate-in .form-group:nth-child(2) { animation-delay: calc(var(--delay-extra-large) + var(--delay-large) + var(--delay-small)); }
+.contact-section.animate-in .form-group:nth-child(3) { animation-delay: calc(var(--delay-extra-large) + var(--delay-extra-large)); }
+.contact-section.animate-in .form-group:nth-child(4) { animation-delay: calc(var(--delay-extra-large) + var(--delay-extra-large) + var(--delay-small)); }
+.contact-section.animate-in .send-btn { 
+    animation: buttonBounceIn var(--transition-slow) ease forwards;
+    animation-delay: calc(var(--delay-extra-large) + var(--delay-extra-large) + var(--delay-normal));
+}
+
+@keyframes formSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes buttonBounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotateZ(-45deg);
+    }
+    50% {
+        transform: scale(1.1) rotateZ(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateZ(0deg);
+    }
+}
+
+/* Contact cards special hover effects */
+.contact-section.animate-in .contact-card:hover {
+    transform: translateX(0) rotateY(0deg) scale(1.05);
+    transition: transform var(--transition-fast) var(--easing-standard);
+}
+
+.contact-section.animate-in .contact-card:hover .contact-icon {
+    animation: iconPulse var(--animation-normal) ease infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Particle effects cho contact section - Timing chuẩn */
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* Floating shapes animations - Timing đồng nhất */
+@keyframes shapeFloat1 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(120deg); }
+    66% { transform: translateY(5px) rotate(240deg); }
+}
+
+@keyframes shapeFloat2 {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    50% { transform: translateX(15px) rotate(180deg); }
+}
+
+@keyframes shapeFloat3 {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.1); }
+}
+
+@keyframes shapeFloat4 {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(0.9); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    75% { transform: rotate(270deg) scale(0.9); }
+}
+
+/* Contact section container positioning */
+.contact-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Enhanced form group hover effects - Timing chuẩn */
+.contact-section.animate-in .form-group:hover {
+    transform: translateY(-2px);
+    transition: transform var(--transition-fast) var(--easing-standard);
+}
+
+.contact-section.animate-in .form-group:hover .form-icon {
+    color: var(--main-color);
+    transform: scale(1.2);
+    transition: all var(--transition-fast) var(--easing-standard);
+}
+
+/* Performance optimization */
+.section-animate,
+.section-animate * {
+    transform-style: preserve-3d;
+}
+
+/* Reduce motion cho users có preference */
+@media (prefers-reduced-motion: reduce) {
+    .section-animate,
+    .section-animate * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
 

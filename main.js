@@ -1304,4 +1304,209 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
+
+    // Scroll Animation Functionality - Hoạt động khi scroll lên và xuống
+    function initScrollAnimations() {
+        const animatedSections = document.querySelectorAll('.section-animate');
+        
+        // Intersection Observer cho hiệu ứng scroll với threshold tốt hơn
+        const observerOptions = {
+            threshold: [0.1, 0.3, 0.5],
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const target = entry.target;
+                
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
+                    // Element vào viewport - thêm animation với timing chuẩn
+                    setTimeout(() => {
+                        target.classList.add('animate-in');
+                        
+                        // Special handling cho contact section
+                        if (target.id === 'contact') {
+                            handleContactAnimation(target);
+                        }
+                    }, 100); // Standard delay 100ms
+                } else {
+                    // Element ra khỏi viewport - xóa animation để có thể trigger lại
+                    target.classList.remove('animate-in');
+                    
+                    // Reset contact section đặc biệt
+                    if (target.id === 'contact') {
+                        resetContactAnimation(target);
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated sections
+        animatedSections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        return observer;
+    }
+    
+    // Special animation handling cho contact section - Timing chuẩn
+    function handleContactAnimation(contactSection) {
+        // Add special effects cho floating shapes với timing variables
+        const shapes = contactSection.querySelectorAll('.floating-shape');
+        shapes.forEach((shape, index) => {
+            setTimeout(() => {
+                const duration = 3 + index; // 3s, 4s, 5s, 6s
+                shape.style.animation = `shapeFloat${index + 1} ${duration}s ease-in-out infinite`;
+            }, 500 + index * 200);
+        });
+        
+        // Add particle effect
+        createContactParticles(contactSection);
+        
+        // Add form interactive effects với timing đồng nhất
+        const formInputs = contactSection.querySelectorAll('input, textarea');
+        formInputs.forEach((input, index) => {
+            setTimeout(() => {
+                input.addEventListener('focus', handleInputFocus);
+                input.addEventListener('blur', handleInputBlur);
+            }, 800 + index * 100); // Tăng dần 100ms
+        });
+    }
+    
+    function resetContactAnimation(contactSection) {
+        // Reset floating shapes
+        const shapes = contactSection.querySelectorAll('.floating-shape');
+        shapes.forEach(shape => {
+            shape.style.animation = '';
+        });
+        
+        // Remove particles
+        const particles = contactSection.querySelectorAll('.contact-particle');
+        particles.forEach(particle => particle.remove());
+    }
+    
+    function createContactParticles(contactSection) {
+        const particleCount = 5;
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'contact-particle';
+            const duration = 2 + Math.random() * 2; // 2-4s duration
+            const delay = Math.random() * 2; // 0-2s delay
+            particle.style.cssText = `
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: var(--main-color);
+                border-radius: 50%;
+                opacity: 0.6;
+                pointer-events: none;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: particleFloat ${duration}s ease-in-out infinite;
+                animation-delay: ${delay}s;
+            `;
+            contactSection.appendChild(particle);
+        }
+    }
+    
+    function handleInputFocus(e) {
+        e.target.parentElement.style.transform = 'scale(1.02)';
+        e.target.parentElement.style.transition = 'transform 0.3s var(--easing-standard)';
+    }
+    
+    function handleInputBlur(e) {
+        e.target.parentElement.style.transform = 'scale(1)';
+        e.target.parentElement.style.transition = 'transform 0.3s var(--easing-standard)';
+    }
+    
+    // Advanced scroll detection với throttling
+    let isScrolling = false;
+    function handleScroll() {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                const animatedSections = document.querySelectorAll('.section-animate');
+                
+                animatedSections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    // Kiểm tra nếu section có ít nhất 20% hiển thị trong viewport
+                    const isVisible = rect.top < windowHeight * 0.8 && rect.bottom > windowHeight * 0.2;
+                    
+                    if (isVisible) {
+                        if (!section.classList.contains('animate-in')) {
+                            section.classList.add('animate-in');
+                        }
+                    } else {
+                        // Xóa animation khi section ra khỏi vùng hiển thị
+                        section.classList.remove('animate-in');
+                    }
+                });
+                
+                isScrolling = false;
+            });
+        }
+        isScrolling = true;
+    }
+    
+    // Enhanced smooth scroll with animation triggers
+    function initSmoothScroll() {
+        const navLinks = document.querySelectorAll('.navlist a[href^="#"]');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    // Trigger animation immediately for clicked section
+                    targetSection.classList.add('animate-in');
+                    
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            });
+        });
+    }
+    
+    // Initialize scroll animations with multiple methods
+    const observer = initScrollAnimations();
+    initSmoothScroll();
+    
+    // Thêm scroll listener như backup với throttling tốt hơn
+    let scrollTimeout;
+    function throttledScroll() {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(handleScroll, 10);
+    }
+    
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    window.addEventListener('resize', throttledScroll, { passive: true });
+    
+    // Initial check khi page load
+    setTimeout(() => {
+        handleScroll();
+        // Double check sau khi page load hoàn toàn
+        setTimeout(handleScroll, 1000);
+    }, 500);
+    
+    // Intersection Observer fallback cho older browsers
+    if (!window.IntersectionObserver) {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        console.log('Using scroll fallback for animations');
+    }
+    
+    // Reset animations on page reload - không cần thiết nữa vì animation sẽ reset tự động
+    window.addEventListener('beforeunload', () => {
+        const animatedSections = document.querySelectorAll('.section-animate');
+        animatedSections.forEach(section => {
+            section.classList.remove('animate-in');
+        });
+    });
 });
