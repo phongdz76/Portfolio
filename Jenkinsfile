@@ -68,7 +68,7 @@ pipeline {
             steps {
                 sshagent(['production-srv']) {
                     sh "ssh -o StrictHostKeyChecking=no -l ${SERVER_CONNECTION}  'sudo docker stop ${APP_NAME} || true && sudo docker rm ${APP_NAME} || true'"
-                    sh "ssh -o StrictHostKeyChecking=no -l ${SERVER_CONNECTION} 'sudo docker run -p 9090:9090 -d --name ${APP_NAME} --restart unless-stopped ${IMAGE_NAME}'"
+                    sh "ssh -o StrictHostKeyChecking=no -l ${SERVER_CONNECTION} 'sudo docker run -p 8888:8888 -d --name ${APP_NAME} --restart unless-stopped ${IMAGE_NAME}'"
                 }
             }
         }
