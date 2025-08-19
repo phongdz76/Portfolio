@@ -822,7 +822,13 @@ class LanguageManager {
                 
                 // Contact Section
                 'Get in Touch': 'Get in Touch',
-                'Contact Me': 'Contact Me'
+                'Contact Me': 'Contact Me',
+                'Contact me': 'Contact me',
+                'Leave a message, I will reply as soon as possible.': 'Leave a message, I will reply as soon as possible.',
+                'Name': 'Name',
+                'Email': 'Email',
+                'Message': 'Message',
+                'Send message': 'Send message'
             },
             vi: {
                 // Navigation
@@ -869,7 +875,13 @@ class LanguageManager {
                 
                 // Contact Section
                 'Get in Touch': 'Liên lạc',
-                'Contact Me': 'Liên hệ với tôi'
+                'Contact Me': 'Liên hệ với tôi',
+                'Contact me': 'Liên hệ',
+                'Leave a message, I will reply as soon as possible.': 'Để lại tin nhắn, tôi sẽ trả lời sớm nhất có thể.',
+                'Name': 'Tên',
+                'Email': 'Email',
+                'Message': 'Tin nhắn',
+                'Send message': 'Gửi tin nhắn'
             }
         };
         
@@ -981,4 +993,307 @@ class LanguageManager {
 // Initialize Language Manager
 document.addEventListener('DOMContentLoaded', function() {
     new LanguageManager();
+});
+
+// EmailJS Configuration and Contact Form Handler
+(function() {
+    // Initialize EmailJS with your public key
+    // TODO: Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+    emailjs.init("92AsVLEg1MfbINHaH");
+})();
+
+// Enhanced Contact Form Handler
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    const statusMessage = document.getElementById('status-message');
+    const sendBtn = contactForm?.querySelector('.send-btn');
+    const btnText = sendBtn?.querySelector('.btn-text');
+    const btnLoading = sendBtn?.querySelector('.btn-loading');
+
+    if (!contactForm) return;
+
+    // Enhanced status message function
+    function showStatusMessage(title, message, type) {
+        const statusIcon = statusMessage.querySelector('.status-icon');
+        const statusTitle = statusMessage.querySelector('.status-title');
+        const statusText = statusMessage.querySelector('.status-text');
+        const statusClose = statusMessage.querySelector('.status-close');
+        
+        statusTitle.textContent = title;
+        statusText.textContent = message;
+        statusMessage.className = `status-message ${type} show`;
+        
+        // Auto hide after 8 seconds for success/error messages
+        if (type !== 'loading') {
+            setTimeout(() => {
+                hideStatusMessage();
+            }, 8000);
+        }
+        
+        // Close button functionality
+        statusClose.addEventListener('click', hideStatusMessage);
+    }
+
+    function hideStatusMessage() {
+        statusMessage.classList.remove('show');
+    }
+
+    // Enhanced form reset function
+    function resetForm() {
+        contactForm.reset();
+        
+        // Reset floating labels
+        const floatingLabels = contactForm.querySelectorAll('.floating-label');
+        floatingLabels.forEach(label => {
+            label.classList.remove('focused');
+        });
+        
+        // Reset button state
+        setLoadingState(false);
+        
+        // Reset textarea height
+        const textareas = contactForm.querySelectorAll('textarea');
+        textareas.forEach(textarea => {
+            textarea.style.height = 'auto';
+        });
+        
+        // Remove focus from all form elements
+        document.activeElement.blur();
+    }
+
+    // Enhanced loading state function
+    function setLoadingState(isLoading) {
+        if (isLoading) {
+            sendBtn.classList.add('loading');
+            sendBtn.disabled = true;
+        } else {
+            sendBtn.classList.remove('loading');
+            sendBtn.disabled = false;
+        }
+    }
+
+    // Form validation
+    function validateForm() {
+        const name = contactForm.querySelector('#user_name').value.trim();
+        const email = contactForm.querySelector('#user_email').value.trim();
+        const message = contactForm.querySelector('#message').value.trim();
+        
+        if (!name) {
+            showStatusMessage('Validation Error', 'Please enter your name.', 'error');
+            return false;
+        }
+        
+        if (!email) {
+            showStatusMessage('Validation Error', 'Please enter your email address.', 'error');
+            return false;
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showStatusMessage('Validation Error', 'Please enter a valid email address.', 'error');
+            return false;
+        }
+        
+        if (!message) {
+            showStatusMessage('Validation Error', 'Please enter your message.', 'error');
+            return false;
+        }
+        
+        if (message.length < 10) {
+            showStatusMessage('Validation Error', 'Please enter a longer message (at least 10 characters).', 'error');
+            return false;
+        }
+        
+        return true;
+    }
+
+    // Enhanced form submission handler
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Validate form first
+        if (!validateForm()) {
+            return;
+        }
+
+        // Set loading state
+        setLoadingState(true);
+        showStatusMessage('Sending...', 'Please wait while we send your message.', 'loading');
+
+        // Get form data
+        const formData = new FormData(contactForm);
+        const templateParams = {
+            user_name: formData.get('user_name'),
+            user_email: formData.get('user_email'),
+            subject: formData.get('subject') || 'Portfolio Contact',
+            message: formData.get('message'),
+            to_email: 'phongdz76@gmail.com' // Your email
+        };
+
+        // Send email using EmailJS
+        emailjs.send('service_85230dl', 'template_n5ipkow', templateParams)
+            .then(function(response) {
+                console.log('Email sent successfully:', response);
+                showStatusMessage(
+                    'Message Sent Successfully!', 
+                    'Thank you for reaching out! I will get back to you within 24 hours.', 
+                    'success'
+                );
+                
+                // Add success animation
+                sendBtn.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    sendBtn.style.transform = '';
+                }, 200);
+                
+                resetForm();
+            })
+            .catch(function(error) {
+                console.error('Email sending failed:', error);
+                showStatusMessage(
+                    'Message Failed to Send', 
+                    'Something went wrong. Please try again or contact me directly at phongdz76@gmail.com', 
+                    'error'
+                );
+                setLoadingState(false);
+            });
+    });
+
+    // Enhanced floating label functionality
+    const floatingInputs = contactForm.querySelectorAll('.floating-label input, .floating-label textarea');
+    
+    floatingInputs.forEach(input => {
+        // Focus effects
+        input.addEventListener('focus', function() {
+            this.closest('.floating-label').classList.add('focused');
+            
+            // Add ripple effect
+            createInputRipple(this);
+        });
+
+        input.addEventListener('blur', function() {
+            if (!this.value.trim()) {
+                this.closest('.floating-label').classList.remove('focused');
+            }
+        });
+
+        // Real-time validation feedback
+        input.addEventListener('input', function() {
+            const floatingLabel = this.closest('.floating-label');
+            
+            if (this.value.trim()) {
+                floatingLabel.classList.add('focused');
+                this.classList.remove('error');
+                
+                // Email validation
+                if (this.type === 'email' && this.value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (emailRegex.test(this.value)) {
+                        this.classList.add('valid');
+                        this.classList.remove('error');
+                    } else {
+                        this.classList.remove('valid');
+                        this.classList.add('error');
+                    }
+                }
+            } else {
+                floatingLabel.classList.remove('focused');
+                this.classList.remove('valid', 'error');
+            }
+        });
+
+        // Check if input has value on page load
+        if (input.value.trim()) {
+            input.closest('.floating-label').classList.add('focused');
+        }
+    });
+
+    // Auto-resize textarea
+    const textarea = contactForm.querySelector('#message');
+    if (textarea) {
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 200) + 'px';
+        });
+    }
+
+    // Button ripple effect
+    function createInputRipple(element) {
+        const ripple = element.parentElement.querySelector('.input-border');
+        if (ripple) {
+            ripple.style.animation = 'none';
+            ripple.offsetHeight; // Trigger reflow
+            ripple.style.animation = 'borderPulse 0.6s ease-out';
+        }
+    }
+
+    // Enhanced button click effect
+    sendBtn.addEventListener('click', function(e) {
+        const ripple = this.querySelector('.btn-ripple');
+        if (ripple) {
+            ripple.style.animation = 'none';
+            ripple.offsetHeight; // Trigger reflow
+            ripple.style.animation = 'buttonRipple 0.6s ease-out';
+        }
+    });
+
+    // Keyboard navigation enhancement
+    contactForm.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            const activeElement = document.activeElement;
+            
+            // Allow normal Enter behavior for textarea
+            if (activeElement.tagName.toLowerCase() === 'textarea') {
+                return;
+            }
+            
+            // Submit form if on submit button
+            if (activeElement === sendBtn) {
+                e.preventDefault();
+                contactForm.dispatchEvent(new Event('submit'));
+                return;
+            }
+            
+            // Move to next input field
+            const inputs = Array.from(contactForm.querySelectorAll('input, textarea, button'));
+            const currentIndex = inputs.indexOf(activeElement);
+            if (currentIndex < inputs.length - 1) {
+                e.preventDefault();
+                inputs[currentIndex + 1].focus();
+            }
+        }
+    });
+
+    // Add CSS for additional animations
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes borderPulse {
+            0% { width: 0; opacity: 1; }
+            100% { width: 100%; opacity: 0.8; }
+        }
+        
+        @keyframes buttonRipple {
+            0% { width: 0; height: 0; opacity: 0.8; }
+            100% { width: 300px; height: 300px; opacity: 0; }
+        }
+        
+        .floating-label input.valid {
+            border-color: #27ae60;
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+        
+        .floating-label input.error {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+        
+        .floating-label input.valid + label {
+            color: #27ae60;
+        }
+        
+        .floating-label input.error + label {
+            color: #e74c3c;
+        }
+    `;
+    document.head.appendChild(style);
 });

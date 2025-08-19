@@ -10,6 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <title>Portfolio website</title>
     <link rel="shortcut icon" href="/images/z5944286235729_301d791e77cc768cc3db60e586b99da8.jpg" type="image/x-icon">
     <!-- boxicon css link -->
@@ -382,14 +384,142 @@
     </section>
 
 
-    <section class="down-box" id="contact">
-        <p class="section__text__p1" data-en="Get in Touch" data-vi="Liên lạc">Get in Touch</p>
-        <h1 class="title" data-en="Contact Me" data-vi="Liên hệ với tôi">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img src="/images/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-                <p><a href="mailto:nguyenhothanhphong5@gmail.com">nguyenhothanhphong5@gmail.com</a></p>
+    <section class="contact-section" id="contact">
+        <!-- Background Decorations -->
+        <div class="contact-bg-decoration">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-header">
+                <span class="section-subtitle" data-en="Get In Touch" data-vi="Liên Hệ">Get In Touch</span>
+                <h2 class="contact-title" data-en="Let's Work Together" data-vi="Hãy Cùng Làm Việc">Let's Work Together</h2>
+                <p class="contact-subtitle" data-en="Ready to bring your ideas to life? Drop me a message and let's create something amazing together!" data-vi="Sẵn sàng biến ý tưởng thành hiện thực? Gửi tin nhắn và cùng tạo ra điều tuyệt vời!">Ready to bring your ideas to life? Drop me a message and let's create something amazing together!</p>
+                <div class="divider"></div>
             </div>
+            
+            <div class="contact-content">
+                <!-- Contact Info Cards -->
+                <div class="contact-info">
+                    <div class="contact-card" data-aos="fade-right" data-aos-delay="100">
+                        <div class="contact-icon">
+                            <i class="bx bx-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-en="Email Me" data-vi="Email">Email Me</h4>
+                            <p>nguyenhothanhphong5@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card" data-aos="fade-right" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="bx bx-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-en="Call Me" data-vi="Gọi Điện">Call Me</h4>
+                            <p>+84 931 429 277</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card" data-aos="fade-right" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="bx bx-map"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-en="Location" data-vi="Địa Chỉ">Location</h4>
+                            <p data-en="Ho Chi Minh City, Vietnam" data-vi="TP. Hồ Chí Minh, Việt Nam">Ho Chi Minh City, Vietnam</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Contact Form -->
+                <div class="contact-form-wrapper" data-aos="fade-left" data-aos-delay="400">
+                    <form id="contact-form" class="modern-contact-form">
+                        <div class="form-row">
+                            <div class="form-group floating-label">
+                                <input type="text" id="user_name" name="user_name" required autocomplete="name">
+                                <label for="user_name">
+                                    <span data-en="Your Name" data-vi="Tên của bạn">Your Name</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-border"></div>
+                                <div class="form-icon">
+                                    <i class="bx bx-user"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group floating-label">
+                                <input type="email" id="user_email" name="user_email" required autocomplete="email">
+                                <label for="user_email">
+                                    <span data-en="Your Email" data-vi="Email của bạn">Your Email</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-border"></div>
+                                <div class="form-icon">
+                                    <i class="bx bx-envelope"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group floating-label full-width">
+                            <input type="text" id="subject" name="subject" autocomplete="off">
+                            <label for="subject">
+                                <span data-en="Subject" data-vi="Chủ đề">Subject</span>
+                            </label>
+                            <div class="input-border"></div>
+                            <div class="form-icon">
+                                <i class="bx bx-bookmark"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group floating-label full-width">
+                            <textarea id="message" name="message" rows="1" required></textarea>
+                            <label for="message">
+                                <span data-en="Your Message" data-vi="Tin nhắn của bạn">Your Message</span>
+                                <span class="required">*</span>
+                            </label>
+                            <div class="input-border"></div>
+                            <div class="form-icon">
+                                <i class="bx bx-message-dots"></i>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="send-btn">
+                            <span class="btn-ripple"></span>
+                            <span class="btn-text" data-en="Send Message" data-vi="Gửi Tin Nhắn">Send Message</span>
+                            <i class="bx bx-send"></i>
+                            <div class="btn-loading">
+                                <div class="loading-spinner"></div>
+                                <span data-en="Sending..." data-vi="Đang gửi...">Sending...</span>
+                            </div>
+                        </button>
+                    </form>
+                    
+                    <!-- Enhanced Status Messages -->
+                    <div id="status-message" class="status-message">
+                        <div class="status-icon"></div>
+                        <div class="status-content">
+                            <h4 class="status-title"></h4>
+                            <p class="status-text"></p>
+                        </div>
+                        <button class="status-close">
+                            <i class="bx bx-x"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Particles Animation -->
+        <div class="particles-container">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
         </div>
     </section>
 
