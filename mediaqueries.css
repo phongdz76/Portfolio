@@ -126,17 +126,29 @@
     }
 
     .about {
-        flex-direction: column;
+        padding: 60px 5% 40px;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
         text-align: center;
     }
 
     .about-img {
+        order: -1;
         margin-bottom: 2rem;
     }
 
     .aboutHero {
-        width: 70%;
+        width: 300px;
+        height: 380px;
         margin: 0 auto;
+    }
+
+    .cvContent {
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .content-btn {
@@ -336,15 +348,41 @@
     }
 
     .about-content h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
-    .about-content h3 {
-        font-size: 1.1rem;
+    .about-container {
+        gap: 2rem;
     }
 
-    .text-box p {
-        font-size: 1rem;
+    .text-block {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .text-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .text-icon i {
+        font-size: 1.2rem;
+    }
+
+    .aboutHero {
+        width: 250px;
+        height: 320px;
+    }
+
+    .cvContent {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cvContent a {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
     }
 }
 

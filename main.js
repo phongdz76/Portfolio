@@ -557,7 +557,7 @@ function setupSmoothScroll() {
 // Initialize all animations
 document.addEventListener('DOMContentLoaded', () => {
     setupImageAnimation();
-    setupTypingAnimation();
+    setupRoleTypingAnimation();
     setupSocialIconsAnimation();
     enhanceRotatingText();
     setupSmoothScroll();
@@ -700,6 +700,62 @@ document.addEventListener('DOMContentLoaded', () => {
         text.style.animation = 'rotateText 30s linear infinite';
     }
 });
+
+// Animated role typing effect
+function setupRoleTypingAnimation() {
+    const roleLines = document.querySelectorAll('.role-line');
+    const roles = ['Frontend Developer', 'Back-end Developer', 'Android Development', 'UX/UI Designer'];
+    let currentRoleIndex = 0;
+    
+    // Clear all role lines initially
+    roleLines.forEach(line => {
+        line.textContent = '';
+        line.classList.remove('typing');
+    });
+    
+    function typeRole(roleIndex) {
+        if (roleIndex >= roles.length) {
+            // Reset and start over
+            setTimeout(() => {
+                roleLines.forEach(line => {
+                    line.textContent = '';
+                    line.classList.remove('typing');
+                });
+                currentRoleIndex = 0;
+                typeRole(0);
+            }, 2000);
+            return;
+        }
+        
+        const role = roles[roleIndex];
+        const targetLine = roleLines[roleIndex];
+        let charIndex = 0;
+        
+        // Add typing class to show cursor
+        targetLine.classList.add('typing');
+        
+        function typeChar() {
+            if (charIndex < role.length) {
+                targetLine.textContent += role.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeChar, 100);
+            } else {
+                // Remove typing class and move to next role after a delay
+                targetLine.classList.remove('typing');
+                setTimeout(() => {
+                    typeRole(roleIndex + 1);
+                }, 500);
+            }
+        }
+        
+        typeChar();
+    }
+    
+    // Start the typing animation
+    setTimeout(() => {
+        typeRole(0);
+    }, 1000);
+}
 
 // Form validation for contact section (if you have one)
 const contactForm = document.querySelector('.contact-form');
