@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+        duration: 800,
+        delay: 100,
+        once: true,
+        easing: 'ease-out-cubic'
+    });
+    
     // Dark Mode Functionality
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
