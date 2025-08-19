@@ -768,3 +768,217 @@ if (contactForm) {
         // Add your AJAX submission or other handling here
     });
 }
+
+// Language Toggle Functionality
+class LanguageManager {
+    constructor() {
+        this.currentLanguage = localStorage.getItem('language') || 'en';
+        this.languageToggle = document.getElementById('languageToggle');
+        this.currentLangDisplay = document.getElementById('currentLang');
+        
+        this.translations = {
+            en: {
+                // Navigation
+                'Home': 'Home',
+                'About': 'About',
+                'Services': 'Services',
+                'Project': 'Project',
+                'Skill': 'Skill',
+                'Contact': 'Contact',
+                'Let\'s Chat': 'Let\'s Chat',
+                
+                // Home Section
+                'Welcome to my Portfolio': 'Welcome to my Portfolio',
+                'Hi I\'m Phong': 'Hi I\'m Phong',
+                'Hello, I\'m Phong, a passionate and lifelong learner. I love exploring new things and always strive to push my boundaries. With a positive mindset, I believe that every challenge is an opportunity to grow and make a positive impact on those around me.': 'Hello, I\'m Phong, a passionate and lifelong learner. I love exploring new things and always strive to push my boundaries. With a positive mindset, I believe that every challenge is an opportunity to grow and make a positive impact on those around me.',
+                'Hire Me Now!': 'Hire Me Now!',
+                'Download CV': 'Download CV',
+                
+                // About Section
+                'Get to know me': 'Get to know me',
+                'About Me': 'About Me',
+                'I am a third-year Software Engineering student with a solid foundation in Backend and Android development. Through my personal projects, I have gained practical experience in building and improving applications, which helps me strengthen my technical skills and problem-solving abilities.': 'I am a third-year Software Engineering student with a solid foundation in Backend and Android development. Through my personal projects, I have gained practical experience in building and improving applications, which helps me strengthen my technical skills and problem-solving abilities.',
+                'I am always eager to learn new things, both in programming and in technology in general, to keep improving myself and prepare for future challenges.': 'I am always eager to learn new things, both in programming and in technology in general, to keep improving myself and prepare for future challenges.',
+                'Outside of studying and coding, I spend my free time playing games, listening to music, and reading novels. These hobbies not only help me relax but also give me new ideas and perspectives that I can sometimes apply in my work and studies.': 'Outside of studying and coding, I spend my free time playing games, listening to music, and reading novels. These hobbies not only help me relax but also give me new ideas and perspectives that I can sometimes apply in my work and studies.',
+                
+                // Services Section
+                'My Services': 'My Services',
+                'what i will do for you': 'what i will do for you',
+                'App Development': 'App Development',
+                'App development is the process of creating software for mobile devices such as smartphones or tablets, including stages from design, programming to deployment. Applications can be developed for operating systems such as iOS, Android or multi-platform.': 'App development is the process of creating software for mobile devices such as smartphones or tablets, including stages from design, programming to deployment. Applications can be developed for operating systems such as iOS, Android or multi-platform.',
+                'Web Development': 'Web Development',
+                'Web development is the process of building and maintaining websites or web applications, including both front-end (user interface) and back-end (server-side processing). It utilizes various technologies such as HTML, CSS, JavaScript, and other programming languages to create interactive and user-friendly websites.': 'Web development is the process of building and maintaining websites or web applications, including both front-end (user interface) and back-end (server-side processing). It utilizes various technologies such as HTML, CSS, JavaScript, and other programming languages to create interactive and user-friendly websites.',
+                'UI/ UX Design': 'UI/ UX Design',
+                'UI/UX Design is the process of designing the user interface and user experience to create products that are easy to use, attractive, and efficient. UI focuses on form and aesthetics, while UX focuses on the user\'s feelings and experiences when interacting with the product.': 'UI/UX Design is the process of designing the user interface and user experience to create products that are easy to use, attractive, and efficient. UI focuses on form and aesthetics, while UX focuses on the user\'s feelings and experiences when interacting with the product.',
+                'See More': 'See More',
+                
+                // Project Section
+                'My Project': 'My Project',
+                'What i will do for you': 'What i will do for you',
+                
+                // Skills Section
+                'My Skill': 'My Skill',
+                'I show you about my skill': 'I show you about my skill',
+                
+                // Contact Section
+                'Get in Touch': 'Get in Touch',
+                'Contact Me': 'Contact Me'
+            },
+            vi: {
+                // Navigation
+                'Home': 'Trang chủ',
+                'About': 'Giới thiệu',
+                'Services': 'Dịch vụ',
+                'Project': 'Dự án',
+                'Skill': 'Kỹ năng',
+                'Contact': 'Liên hệ',
+                'Let\'s Chat': 'Liên hệ',
+                
+                // Home Section
+                'Welcome to my Portfolio': 'Chào mừng đến với Portfolio của tôi',
+                'Hi I\'m Phong': 'Xin chào, tôi là Phong',
+                'Hello, I\'m Phong, a passionate and lifelong learner. I love exploring new things and always strive to push my boundaries. With a positive mindset, I believe that every challenge is an opportunity to grow and make a positive impact on those around me.': 'Xin chào, tôi là Phong, một người học hỏi đam mê và suốt đời. Tôi thích khám phá những điều mới và luôn cố gắng vượt qua giới hạn của bản thân. Với tư duy tích cực, tôi tin rằng mọi thử thách đều là cơ hội để phát triển và tạo ra tác động tích cực cho những người xung quanh.',
+                'Hire Me Now!': 'Thuê tôi ngay!',
+                'Download CV': 'Tải CV',
+                
+                // About Section
+                'Get to know me': 'Tìm hiểu về tôi',
+                'About Me': 'Về tôi',
+                'I am a third-year Software Engineering student with a solid foundation in Backend and Android development. Through my personal projects, I have gained practical experience in building and improving applications, which helps me strengthen my technical skills and problem-solving abilities.': 'Tôi là sinh viên năm ba ngành Kỹ thuật Phần mềm với nền tảng vững chắc về Backend và phát triển Android. Thông qua các dự án cá nhân, tôi đã có được kinh nghiệm thực tế trong việc xây dựng và cải thiện ứng dụng, giúp tôi củng cố kỹ năng kỹ thuật và khả năng giải quyết vấn đề.',
+                'I am always eager to learn new things, both in programming and in technology in general, to keep improving myself and prepare for future challenges.': 'Tôi luôn háo hức học hỏi những điều mới, cả trong lập trình và công nghệ nói chung, để không ngừng hoàn thiện bản thân và chuẩn bị cho những thử thách trong tương lai.',
+                'Outside of studying and coding, I spend my free time playing games, listening to music, and reading novels. These hobbies not only help me relax but also give me new ideas and perspectives that I can sometimes apply in my work and studies.': 'Ngoài học tập và lập trình, tôi dành thời gian rảnh để chơi game, nghe nhạc và đọc tiểu thuyết. Những sở thích này không chỉ giúp tôi thư giãn mà còn mang lại những ý tưởng và góc nhìn mới mà đôi khi tôi có thể áp dụng trong công việc và học tập.',
+                
+                // Services Section
+                'My Services': 'Dịch vụ của tôi',
+                'what i will do for you': 'những gì tôi sẽ làm cho bạn',
+                'App Development': 'Phát triển ứng dụng',
+                'App development is the process of creating software for mobile devices such as smartphones or tablets, including stages from design, programming to deployment. Applications can be developed for operating systems such as iOS, Android or multi-platform.': 'Phát triển ứng dụng là quá trình tạo ra phần mềm cho các thiết bị di động như smartphone hoặc tablet, bao gồm các giai đoạn từ thiết kế, lập trình đến triển khai. Ứng dụng có thể được phát triển cho các hệ điều hành như iOS, Android hoặc đa nền tảng.',
+                'Web Development': 'Phát triển Web',
+                'Web development is the process of building and maintaining websites or web applications, including both front-end (user interface) and back-end (server-side processing). It utilizes various technologies such as HTML, CSS, JavaScript, and other programming languages to create interactive and user-friendly websites.': 'Phát triển web là quá trình xây dựng và duy trì các trang web hoặc ứng dụng web, bao gồm cả front-end (giao diện người dùng) và back-end (xử lý phía máy chủ). Nó sử dụng các công nghệ khác nhau như HTML, CSS, JavaScript và các ngôn ngữ lập trình khác để tạo ra các trang web tương tác và thân thiện với người dùng.',
+                'UI/ UX Design': 'Thiết kế UI/UX',
+                'UI/UX Design is the process of designing the user interface and user experience to create products that are easy to use, attractive, and efficient. UI focuses on form and aesthetics, while UX focuses on the user\'s feelings and experiences when interacting with the product.': 'Thiết kế UI/UX là quá trình thiết kế giao diện người dùng và trải nghiệm người dùng để tạo ra các sản phẩm dễ sử dụng, hấp dẫn và hiệu quả. UI tập trung vào hình thức và tính thẩm mỹ, trong khi UX tập trung vào cảm xúc và trải nghiệm của người dùng khi tương tác với sản phẩm.',
+                'See More': 'Xem thêm',
+                
+                // Project Section
+                'My Project': 'Dự án của tôi',
+                'What i will do for you': 'Những gì tôi sẽ làm cho bạn',
+                
+                // Skills Section
+                'My Skill': 'Kỹ năng của tôi',
+                'I show you about my skill': 'Tôi sẽ cho bạn thấy về kỹ năng của tôi',
+                
+                // Contact Section
+                'Get in Touch': 'Liên lạc',
+                'Contact Me': 'Liên hệ với tôi'
+            }
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        // Set initial language display
+        this.updateLanguageDisplay();
+        
+        // Apply saved language
+        this.applyLanguage(this.currentLanguage);
+        
+        // Add event listener
+        if (this.languageToggle) {
+            this.languageToggle.addEventListener('click', () => {
+                this.toggleLanguage();
+            });
+        }
+    }
+    
+    toggleLanguage() {
+        // Add loading effect
+        this.languageToggle.style.transform = 'scale(0.95)';
+        this.languageToggle.style.opacity = '0.7';
+        
+        // Switch language
+        this.currentLanguage = this.currentLanguage === 'en' ? 'vi' : 'en';
+        
+        // Save to localStorage
+        localStorage.setItem('language', this.currentLanguage);
+        
+        // Apply new language with animation
+        setTimeout(() => {
+            this.applyLanguage(this.currentLanguage);
+            this.updateLanguageDisplay();
+            
+            // Reset button style
+            this.languageToggle.style.transform = 'scale(1)';
+            this.languageToggle.style.opacity = '1';
+        }, 150);
+    }
+    
+    updateLanguageDisplay() {
+        if (this.currentLangDisplay) {
+            this.currentLangDisplay.textContent = this.currentLanguage.toUpperCase();
+        }
+    }
+    
+    applyLanguage(language) {
+        // Get all elements with data attributes
+        const elements = document.querySelectorAll('[data-en], [data-vi]');
+        
+        elements.forEach(element => {
+            const text = element.getAttribute(`data-${language}`);
+            if (text) {
+                // Add fade effect
+                element.style.opacity = '0.7';
+                element.style.transform = 'translateY(-5px)';
+                
+                setTimeout(() => {
+                    // Update text content while preserving HTML structure
+                    if (element.tagName === 'A' && element.innerHTML.includes('<i')) {
+                        // For buttons with icons, preserve the icon
+                        const iconMatch = element.innerHTML.match(/<i[^>]*><\/i>/);
+                        if (iconMatch) {
+                            element.innerHTML = text + ' ' + iconMatch[0];
+                        } else {
+                            element.textContent = text;
+                        }
+                    } else {
+                        element.textContent = text;
+                    }
+                    
+                    // Reset transform
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 100);
+            }
+        });
+        
+        // Update page title
+        document.title = language === 'vi' ? 'Portfolio - Phong Nguyễn' : 'Portfolio - Phong Nguyen';
+        
+        // Update role animation text if it exists
+        this.updateRoleAnimation(language);
+    }
+    
+    updateRoleAnimation(language) {
+        const roleLines = document.querySelectorAll('.role-line');
+        if (roleLines.length > 0) {
+            // Reset any running animations
+            roleLines.forEach(line => {
+                line.style.opacity = '0';
+            });
+            
+            // Restart animation with new language
+            setTimeout(() => {
+                roleLines.forEach((line, index) => {
+                    setTimeout(() => {
+                        line.style.opacity = '1';
+                    }, index * 500);
+                });
+            }, 200);
+        }
+    }
+}
+
+// Initialize Language Manager
+document.addEventListener('DOMContentLoaded', function() {
+    new LanguageManager();
+});

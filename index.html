@@ -22,15 +22,22 @@
         <header>
             <a href="/index.html" class="logo"><span>P</span>hong</a>
             <ul class="navlist">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#project">Project</a></li>
-                <li><a href="#skill">Skill</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="active" data-en="Home" data-vi="Trang chủ">Home</a></li>
+                <li><a href="#about" data-en="About" data-vi="Giới thiệu">About</a></li>
+                <li><a href="#services" data-en="Services" data-vi="Dịch vụ">Services</a></li>
+                <li><a href="#project" data-en="Project" data-vi="Dự án">Project</a></li>
+                <li><a href="#skill" data-en="Skill" data-vi="Kỹ năng">Skill</a></li>
+                <li><a href="#contact" data-en="Contact" data-vi="Liên hệ">Contact</a></li>
             </ul>
             <div class="right-header">
-                <a href="#contact" class="btn">Let's Chat <i class="bx bx-message-dots"></i></a>
+                <!-- Language Toggle -->
+                <div class="language-toggle">
+                    <button id="languageToggle" class="language-btn">
+                        <i class="bx bx-world"></i>
+                        <span id="currentLang">EN</span>
+                    </button>
+                </div>
+                <a href="#contact" class="btn" data-en="Let's Chat" data-vi="Liên hệ">Let's Chat <i class="bx bx-message-dots"></i></a>
                 <div class="menu-icon">
                     <div class="bar"></div>
                 </div>
@@ -39,8 +46,8 @@
 
         <section class="home" id="home">
             <div class="hero-info">
-                <h3>Welcome to my Portfolio</h3>
-                <h1>Hi I'm Phong</h1>
+                <h3 data-en="Welcome to my Portfolio" data-vi="Chào mừng đến với Portfolio của tôi">Welcome to my Portfolio</h3>
+                <h1 data-en="Hi I'm Phong" data-vi="Xin chào, tôi là Phong">Hi I'm Phong</h1>
 
                 <div class="text-animate">
                     <h2>
@@ -51,13 +58,13 @@
                     </h2>
                 </div>
 
-                <p>Hello, I'm Phong, a passionate and lifelong learner. I love exploring new things and always strive to push my boundaries. 
+                <p data-en="Hello, I'm Phong, a passionate and lifelong learner. I love exploring new things and always strive to push my boundaries. With a positive mindset, I believe that every challenge is an opportunity to grow and make a positive impact on those around me." data-vi="Xin chào, tôi là Phong, một người học hỏi đam mê. Tôi thích khám phá những điều mới và luôn cố gắng vượt qua giới hạn của bản thân. Với tư duy tích cực, tôi tin rằng mọi thử thách đều là cơ hội để phát triển và tạo ra tác động tích cực cho những người xung quanh.">Hello, I'm Phong, a passionate and lifelong learner. I love exploring new things and always strive to push my boundaries. 
                     With a positive mindset, I believe that every challenge is an opportunity to grow and make a positive impact on those around me.</p>
 
                 <div class="btn-box">
-                    <a href="#contact" class="btn">Hire Me Now! <i
+                    <a href="#contact" class="btn" data-en="Hire Me Now!" data-vi="Thuê tôi ngay!">Hire Me Now! <i
                             class="bx bx-right-arrow-alt"></i></a>
-                    <a href="/images/CV_ThanhPhong.pdf" target="_blank" class="btn d-CV">Download CV<i class="bx bx-download"></i></a>
+                    <a href="/images/CV_ThanhPhong.pdf" target="_blank" class="btn d-CV" data-en="Download CV" data-vi="Tải CV">Download CV<i class="bx bx-download"></i></a>
                 </div>
 
                 <div class="social-media">
@@ -140,8 +147,8 @@
             <div class="about-container">
                 <div class="about-content">
                     <div class="section-header">
-                        <span class="section-subtitle">Get to know me</span>
-                        <h2 class="about-info">About Me</h2>
+                        <span class="section-subtitle" data-en="Get to know me" data-vi="Tìm hiểu về tôi">Get to know me</span>
+                        <h2 class="about-info" data-en="About Me" data-vi="Về tôi">About Me</h2>
                         <div class="divider"></div>
                     </div>
                     
@@ -150,7 +157,7 @@
                             <div class="text-icon">
                                 <i class="bx bx-code-alt"></i>
                             </div>
-                            <p>I am a third-year <span class="highlight">Software Engineering</span> student with a solid foundation in Backend and Android development. 
+                            <p data-en="I am a third-year Software Engineering student with a solid foundation in Backend and Android development. Through my personal projects, I have gained practical experience in building and improving applications, which helps me strengthen my technical skills and problem-solving abilities." data-vi="Tôi là sinh viên năm ba ngành Kỹ thuật Phần mềm với nền tảng vững chắc về Backend và phát triển Android. Thông qua các dự án cá nhân, tôi đã có được kinh nghiệm thực tế trong việc xây dựng và cải thiện ứng dụng, giúp tôi củng cố kỹ năng kỹ thuật và khả năng giải quyết vấn đề.">I am a third-year <span class="highlight">Software Engineering</span> student with a solid foundation in Backend and Android development. 
                             Through my personal projects, I have gained practical experience in building and improving applications, 
                             which helps me strengthen my technical skills and problem-solving abilities.</p>
                         </div>
@@ -159,20 +166,20 @@
                             <div class="text-icon">
                                 <i class="bx bx-brain"></i>
                             </div>
-                            <p>I am always eager to learn new things, both in programming and in technology in general, to keep improving myself and prepare for future challenges.</p>
+                            <p data-en="I am always eager to learn new things, both in programming and in technology in general, to keep improving myself and prepare for future challenges." data-vi="Tôi luôn háo hức học hỏi những điều mới, cả trong lập trình và công nghệ nói chung, để không ngừng hoàn thiện bản thân và chuẩn bị cho những thử thách trong tương lai.">I am always eager to learn new things, both in programming and in technology in general, to keep improving myself and prepare for future challenges.</p>
                         </div>
                         
                         <div class="text-block">
                             <div class="text-icon">
                                 <i class="bx bx-game"></i>
                             </div>
-                            <p>Outside of studying and coding, I spend my free time playing games, listening to music, and reading novels. 
+                            <p data-en="Outside of studying and coding, I spend my free time playing games, listening to music, and reading novels. These hobbies not only help me relax but also give me new ideas and perspectives that I can sometimes apply in my work and studies." data-vi="Ngoài học tập và lập trình, tôi dành thời gian rảnh để chơi game, nghe nhạc và đọc tiểu thuyết. Những sở thích này không chỉ giúp tôi thư giãn mà còn mang lại những ý tưởng và góc nhìn mới mà đôi khi tôi có thể áp dụng trong công việc và học tập.">Outside of studying and coding, I spend my free time playing games, listening to music, and reading novels. 
                             These hobbies not only help me relax but also give me new ideas and perspectives that I can sometimes apply in my work and studies.</p>
                         </div>
                     </div>
                     
                     <div class="cvContent">
-                        <a href="/images/CV_ThanhPhong.pdf" target="_blank" class="btn d-CV">Download CV<i class="bx bx-download"></i></a>
+                        <a href="/images/CV_ThanhPhong.pdf" target="_blank" class="btn d-CV" data-en="Download CV" data-vi="Tải CV">Download CV<i class="bx bx-download"></i></a>
                     </div>
                 </div>
                 
@@ -191,8 +198,8 @@
 
     <section class="services" id="services">
         <div class="main-text">
-            <h2 class="heading">My Services</h2>
-            <span>what i will do for you</span>
+            <h2 class="heading" data-en="My Services" data-vi="Dịch vụ của tôi">My Services</h2>
+            <span data-en="what i will do for you" data-vi="những gì tôi sẽ làm cho bạn">what i will do for you</span>
         </div>
 
         <div class="allServices">
@@ -201,27 +208,27 @@
                 <div class="icon-services">
                     <i class="bx bx-mobile-alt"></i>
                     <span></span>
-                    <h3>App Development</h3>
-                    <p>App development is the process of creating software for mobile devices such as smartphones or tablets, including stages from design, programming to deployment. Applications can be developed for operating systems such as iOS, Android or multi-platform.</p>
-                    <a href="#project" class="readMore">See More</a>
+                    <h3 data-en="App Development" data-vi="Phát triển ứng dụng">App Development</h3>
+                    <p data-en="App development is the process of creating software for mobile devices such as smartphones or tablets, including stages from design, programming to deployment. Applications can be developed for operating systems such as iOS, Android or multi-platform." data-vi="Phát triển ứng dụng là quá trình tạo ra phần mềm cho các thiết bị di động như smartphone hoặc tablet, bao gồm các giai đoạn từ thiết kế, lập trình đến triển khai. Ứng dụng có thể được phát triển cho các hệ điều hành như iOS, Android hoặc đa nền tảng.">App development is the process of creating software for mobile devices such as smartphones or tablets, including stages from design, programming to deployment. Applications can be developed for operating systems such as iOS, Android or multi-platform.</p>
+                    <a href="#project" class="readMore" data-en="See More" data-vi="Xem thêm">See More</a>
                 </div>
 
 
                 <div class="icon-services">
                     <i class="bx bx-code-alt"></i>
                     <span></span>
-                    <h3>Web Development</h3>
-                    <p>Web development is the process of building and maintaining websites or web applications, including both front-end (user interface) and back-end (server-side processing). It utilizes various technologies such as HTML, CSS, JavaScript, and other programming languages to create interactive and user-friendly websites.
+                    <h3 data-en="Web Development" data-vi="Phát triển Web">Web Development</h3>
+                    <p data-en="Web development is the process of building and maintaining websites or web applications, including both front-end (user interface) and back-end (server-side processing). It utilizes various technologies such as HTML, CSS, JavaScript, and other programming languages to create interactive and user-friendly websites." data-vi="Phát triển web là quá trình xây dựng và duy trì các trang web hoặc ứng dụng web, bao gồm cả front-end (giao diện người dùng) và back-end (xử lý phía máy chủ). Nó sử dụng các công nghệ khác nhau như HTML, CSS, JavaScript và các ngôn ngữ lập trình khác để tạo ra các trang web tương tác và thân thiện với người dùng.">Web development is the process of building and maintaining websites or web applications, including both front-end (user interface) and back-end (server-side processing). It utilizes various technologies such as HTML, CSS, JavaScript, and other programming languages to create interactive and user-friendly websites.
                     </p>
-                    <a href="#project" class="readMore">See More</a>
+                    <a href="#project" class="readMore" data-en="See More" data-vi="Xem thêm">See More</a>
                 </div>
 
                 <div class="icon-services">
                     <i class="bx bx-desktop"></i>
                     <span></span>
-                    <h3>UI/ UX Design</h3>
-                    <p>UI/UX Design is the process of designing the user interface and user experience to create products that are easy to use, attractive, and efficient. UI focuses on form and aesthetics, while UX focuses on the user's feelings and experiences when interacting with the product.</p>
-                    <a href="#project" class="readMore">See More</a>
+                    <h3 data-en="UI/ UX Design" data-vi="Thiết kế UI/UX">UI/ UX Design</h3>
+                    <p data-en="UI/UX Design is the process of designing the user interface and user experience to create products that are easy to use, attractive, and efficient. UI focuses on form and aesthetics, while UX focuses on the user's feelings and experiences when interacting with the product." data-vi="Thiết kế UI/UX là quá trình thiết kế giao diện người dùng và trải nghiệm người dùng để tạo ra các sản phẩm dễ sử dụng, hấp dẫn và hiệu quả. UI tập trung vào hình thức và tính thẩm mỹ, trong khi UX tập trung vào cảm xúc và trải nghiệm của người dùng khi tương tác với sản phẩm.">UI/UX Design is the process of designing the user interface and user experience to create products that are easy to use, attractive, and efficient. UI focuses on form and aesthetics, while UX focuses on the user's feelings and experiences when interacting with the product.</p>
+                    <a href="#project" class="readMore" data-en="See More" data-vi="Xem thêm">See More</a>
                 </div>
             </div>
         </div>
@@ -231,8 +238,8 @@
 
     <section class="project" id="project">
         <div class="main-text">
-            <h2 class="heading">My Project</h2>
-            <span>What i will do for you</span>
+            <h2 class="heading" data-en="My Project" data-vi="Dự án của tôi">My Project</h2>
+            <span data-en="What i will do for you" data-vi="Những gì tôi sẽ làm cho bạn">What i will do for you</span>
         </div>
 
         <div class="projects-container">
@@ -274,8 +281,8 @@
     <section class="blog" id="skill">
 
         <div class="main-text">
-            <h2 class="heading">My Skill</h2>
-            <span>I show you about my skill</span>
+            <h2 class="heading" data-en="My Skill" data-vi="Kỹ năng của tôi">My Skill</h2>
+            <span data-en="I show you about my skill" data-vi="Tôi sẽ cho bạn thấy về kỹ năng của tôi">I show you about my skill</span>
         </div>
 
         <div class="skills-container">
@@ -341,8 +348,8 @@
     </section>
 
     <section class="down-box" id="contact">
-            <p class="section__text__p1">Get in Touch</p>
-            <h1 class="title">Contact Me</h1>
+            <p class="section__text__p1" data-en="Get in Touch" data-vi="Liên lạc">Get in Touch</p>
+            <h1 class="title" data-en="Contact Me" data-vi="Liên hệ với tôi">Contact Me</h1>
             <div class="contact-info-upper-container">
               <div class="contact-info-container">
                 <img

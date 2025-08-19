@@ -136,6 +136,96 @@ ul.navlist{
     grid-gap: .8rem;
 }
 
+/* Language Toggle Styles */
+.language-toggle {
+    margin-right: 1rem;
+    position: relative;
+}
+
+.language-btn {
+    background: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    min-width: auto;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+    height: auto;
+}
+
+/* Hover background effect */
+.language-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--text-color);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.language-btn:hover::before {
+    left: 0;
+}
+
+.language-btn:hover {
+    color: var(--bg-color);
+    border-color: var(--text-color);
+    transform: translateY(-2px);
+    box-shadow: var(--hover-box-shadow);
+}
+
+/* Active/Click effect */
+.language-btn:active {
+    transform: translateY(0px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.language-btn i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.language-btn:hover i {
+    transform: rotate(180deg);
+}
+
+.language-btn #currentLang {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Dark mode styles for language toggle */
+body.dark-mode .language-btn {
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+body.dark-mode .language-btn::before {
+    background: var(--text-color);
+}
+
+body.dark-mode .language-btn:hover {
+    color: var(--bg-color);
+    box-shadow: var(--hover-box-shadow);
+}
+
 .btn{
     background: var(--gradient-color-bg);
     padding: 8px 10px;
@@ -338,8 +428,13 @@ section{
     color: #000;
     box-shadow: rgba(60,64,67,0.3) 0px 1px 2px 0px,
                  rgba(60,64,67,0.15) 0px 2px 6px 2px;
-
     transition: all .3s ease;
+    min-width: 140px; /* Fixed width to prevent layout shift */
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .social-media{
@@ -698,6 +793,8 @@ section{
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    min-width: 140px; /* Fixed width to prevent layout shift */
+    justify-content: center;
 }
 
 .text-box{

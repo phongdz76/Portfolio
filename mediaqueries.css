@@ -236,6 +236,27 @@
         .right-header {
             gap: 1rem;
         }
+        
+        /* Language toggle responsive adjustments */
+        .language-toggle {
+            margin-right: 0.8rem;
+        }
+        
+        .language-btn {
+            padding: 8px 10px;
+            font-size: 14px;
+            gap: 6px;
+            border-radius: 5px;
+        }
+        
+        .language-btn i {
+            font-size: 16px;
+        }
+        
+        .language-btn #currentLang {
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
     
         /* Ensure menu stays above other content */
         header {
@@ -280,6 +301,7 @@
         margin: 0 auto;
         text-align: center;
         justify-content: center;
+        min-width: 140px; /* Maintain consistent width */
     }
 
     .anhinfo {
@@ -302,6 +324,27 @@
 @media (max-width: 575px) {
     header {
         padding: 10px var(--mobile-padding);
+    }
+    
+    /* Language toggle for very small screens */
+    .language-toggle {
+        margin-right: 0.5rem;
+    }
+    
+    .language-btn {
+        padding: 8px 10px;
+        font-size: 14px;
+        gap: 4px;
+        border-radius: 5px;
+    }
+    
+    .language-btn i {
+        font-size: 16px;
+    }
+    
+    .language-btn #currentLang {
+        letter-spacing: 0.3px;
+        font-weight: 500;
     }
 
     header .logo {
@@ -383,6 +426,7 @@
         width: 100%;
         max-width: 200px;
         justify-content: center;
+        min-width: 140px; /* Maintain consistent width across languages */
     }
 }
 
