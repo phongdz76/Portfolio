@@ -66,7 +66,7 @@ pipeline {
         
         stage('Deploy to server') {
             steps {
-                sshagent(['guests_ssh']) {
+                sshagent(['guests-ssh']) {
                     sh "ssh -o StrictHostKeyChecking=no -l ${SERVER_CONNECTION}  'sudo docker stop ${APP_NAME} || true && sudo docker rm ${APP_NAME} || true'"
                     sh "ssh -o StrictHostKeyChecking=no -l ${SERVER_CONNECTION} 'sudo docker run -p 8888:8888 -d --name ${APP_NAME} --restart unless-stopped ${IMAGE_NAME}'"
                 }
