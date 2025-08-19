@@ -31,6 +31,17 @@
     --gradient-white-bg2:linear-gradient(98deg,#f0d5b8 0%,#faf5f0 100%); /* Gradient phụ */
 }
 
+/* Dark mode CSS variables */
+body.dark-mode {
+    --bg-color: #0c0c0c;
+    --gradient-white-bg: linear-gradient(0deg, #1e1e1e 0%, #2d2d2d 51%, #404040 100%);
+    --gradient-color-bg: linear-gradient(180deg, rgba(102, 126, 234, 1) 0%, rgba(118, 75, 162, 1) 51%, rgba(76, 29, 149, 1) 100%);
+    --main-color: #667eea;
+    --font-color: #e0e0e0;
+    --hover-box-shadow: rgba(102, 126, 234, 0.3) 0px 10px 20px, rgba(118, 75, 162, 0.2) 0px 6px 6px;
+    --gradient-white-bg2: linear-gradient(98deg, #2d2d2d 0%, #1e1e1e 100%);
+}
+
 a{
     text-decoration: none;
     color: #000;
@@ -1095,7 +1106,7 @@ body.dark-mode {
 }
 
 body.dark-mode header {
-    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+    background: var(--gradient-white-bg);
     border-bottom: 1px solid #404040;
 }
 
@@ -1104,29 +1115,29 @@ body.dark-mode .logo {
 }
 
 body.dark-mode .navlist li a {
-    color: #e0e0e0;
+    color: var(--font-color);
 }
 
 body.dark-mode .navlist li a:hover,
 body.dark-mode .navlist li a.active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--gradient-color-bg);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
 body.dark-mode .btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    background: var(--gradient-color-bg);
+    box-shadow: var(--hover-box-shadow);
 }
 
 body.dark-mode .btn:hover {
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: var(--hover-box-shadow);
     transform: translateY(-2px);
 }
 
 body.dark-mode .home {
-    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+    background: var(--gradient-white-bg2);
 }
 
 body.dark-mode .hero-info h1,
@@ -1135,44 +1146,44 @@ body.dark-mode .hero-info h3 {
 }
 
 body.dark-mode .hero-info p {
-    color: #b0b0b0;
+    color: var(--font-color);
 }
 
 body.dark-mode .text-animate h2 {
-    -webkit-text-stroke: 0.1vw #667eea;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-text-stroke: 0.1vw var(--main-color);
+    background: var(--gradient-color-bg);
     -webkit-background-clip: text;
     background-clip: text;
 }
 
 body.dark-mode .d-CV {
-    background: linear-gradient(135deg, #2d2d2d 0%, #404040 100%);
-    color: #fff;
+    background: var(--gradient-white-bg2);
+    color: var(--font-color);
     border: 1px solid #555;
 }
 
 body.dark-mode .d-CV:hover {
-    background: linear-gradient(135deg, #404040 0%, #555 100%);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: var(--gradient-white-bg);
+    box-shadow: var(--hover-box-shadow);
 }
 
 body.dark-mode .social-media a {
     background: #2d2d2d;
-    color: #667eea;
+    color: var(--main-color);
     border: 1px solid #404040;
 }
 
 body.dark-mode .social-media a:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--gradient-color-bg);
     color: #fff;
 }
 
 body.dark-mode .about {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0c0c0c 100%);
+    background: var(--gradient-white-bg2);
 }
 
 body.dark-mode .about-content h2 {
-    color: #667eea;
+    color: var(--main-color);
 }
 
 body.dark-mode .about-content h3 {
@@ -1180,11 +1191,11 @@ body.dark-mode .about-content h3 {
 }
 
 body.dark-mode .about-content p {
-    color: #b0b0b0;
+    color: var(--font-color);
 }
 
 body.dark-mode .allServices {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0c0c0c 100%);
+    background: var(--gradient-white-bg2);
 }
 
 body.dark-mode .icon-services {
@@ -1196,7 +1207,7 @@ body.dark-mode .icon-services {
 body.dark-mode .icon-services:hover {
     background: rgba(55, 55, 55, 0.95);
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--hover-box-shadow);
 }
 
 body.dark-mode .icon-services h3 {
@@ -1204,11 +1215,11 @@ body.dark-mode .icon-services h3 {
 }
 
 body.dark-mode .icon-services p {
-    color: #b0b0b0;
+    color: var(--font-color);
 }
 
 body.dark-mode .project {
-    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+    background: var(--gradient-white-bg2);
 }
 
 body.dark-mode .project-card {
@@ -1218,7 +1229,7 @@ body.dark-mode .project-card {
 
 body.dark-mode .project-card:hover {
     background: #404040;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--hover-box-shadow);
 }
 
 body.dark-mode .project-title {
@@ -1228,20 +1239,20 @@ body.dark-mode .project-title {
 body.dark-mode .github-link {
     background: #404040;
     color: #fff;
-    border: 2px solid #667eea;
+    border: 2px solid var(--main-color);
 }
 
 body.dark-mode .github-link:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--gradient-color-bg);
     color: #fff;
 }
 
 body.dark-mode .blog {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0c0c0c 100%);
+    background: var(--gradient-white-bg2);
 }
 
 body.dark-mode .skills-container {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0c0c0c 100%);
+    background: var(--gradient-white-bg2);
 }
 
 body.dark-mode .skill {
@@ -1251,7 +1262,7 @@ body.dark-mode .skill {
 
 body.dark-mode .skill:hover {
     background: rgba(55, 55, 55, 0.9);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--hover-box-shadow);
 }
 
 body.dark-mode .skill-name {
@@ -1259,15 +1270,15 @@ body.dark-mode .skill-name {
 }
 
 body.dark-mode #contact {
-    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+    background: var(--gradient-white-bg2);
 }
 
 body.dark-mode .title {
-    color: #667eea;
+    color: var(--main-color);
 }
 
 body.dark-mode .section__text__p1 {
-    color: #b0b0b0;
+    color: var(--font-color);
 }
 
 body.dark-mode .contact-info-upper-container {
@@ -1280,7 +1291,7 @@ body.dark-mode .contact-info-container p {
 }
 
 body.dark-mode .contact-info-container a {
-    color: #667eea;
+    color: var(--main-color);
 }
 
 body.dark-mode .contact-info-container a:hover {
@@ -1293,15 +1304,15 @@ body.dark-mode footer {
 }
 
 body.dark-mode footer p {
-    color: #b0b0b0;
+    color: var(--font-color);
 }
 
 body.dark-mode .main-text .heading {
-    color: #667eea;
+    color: var(--main-color);
 }
 
 body.dark-mode .main-text span {
-    color: #b0b0b0;
+    color: var(--font-color);
 }
 
 body.dark-mode .text b {
@@ -1310,6 +1321,93 @@ body.dark-mode .text b {
 
 body.dark-mode .rotate-text span {
     border: 2px solid #404040;
+}
+
+/* Additional dark mode synchronization for missing elements */
+body.dark-mode .aboutHero {
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .cvContent a {
+    background: var(--gradient-white-bg);
+    color: var(--font-color);
+    box-shadow: var(--hover-box-shadow);
+}
+
+body.dark-mode .cvContent a:hover {
+    background: var(--gradient-color-bg);
+    color: #fff;
+}
+
+body.dark-mode .bg-icon span {
+    background: var(--gradient-color-bg);
+}
+
+body.dark-mode .readMore {
+    background: var(--gradient-color-bg);
+    color: #fff;
+    box-shadow: var(--hover-box-shadow);
+}
+
+body.dark-mode .readMore:hover {
+    background: var(--gradient-white-bg);
+    color: var(--font-color);
+    box-shadow: var(--hover-box-shadow);
+}
+
+/* Ensure all text elements inherit proper colors */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #fff;
+}
+
+body.dark-mode p {
+    color: var(--font-color);
+}
+
+body.dark-mode span {
+    background: var(--gradient-color-bg);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Dark mode for input and form elements */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: #2d2d2d;
+    color: var(--font-color);
+    border: 1px solid #404040;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+
+/* Dark mode for scroll bars */
+body.dark-mode::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.dark-mode::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 4px;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
 }
 
 /* Responsive Design for Dark Mode Toggle */
