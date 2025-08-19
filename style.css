@@ -536,7 +536,6 @@ section{
 
 .allServices {
     padding: 60px 20px;
-    background: linear-gradient(135deg, #f6f9fc 0%, #f1f4f8 100%);
 }
 
 .servicesItem {
@@ -1186,7 +1185,7 @@ body.dark-mode .btn:hover {
 }
 
 body.dark-mode .home {
-    background: var(--gradient-white-bg2);
+    background: transparent;
 }
 
 body.dark-mode .hero-info h1,
@@ -1228,7 +1227,7 @@ body.dark-mode .social-media a:hover {
 }
 
 body.dark-mode .about {
-    background: var(--gradient-white-bg2);
+    background: transparent;
 }
 
 body.dark-mode .about-content h2 {
@@ -1244,7 +1243,7 @@ body.dark-mode .about-content p {
 }
 
 body.dark-mode .allServices {
-    background: var(--gradient-white-bg2);
+    background: transparent;
 }
 
 body.dark-mode .icon-services {
@@ -1268,7 +1267,7 @@ body.dark-mode .icon-services p {
 }
 
 body.dark-mode .project {
-    background: var(--gradient-white-bg2);
+    background: transparent;
 }
 
 body.dark-mode .project-card {
@@ -1297,7 +1296,7 @@ body.dark-mode .github-link:hover {
 }
 
 body.dark-mode .blog {
-    background: var(--gradient-white-bg2);
+    background: transparent;
 }
 
 body.dark-mode .skills-container {
@@ -1333,7 +1332,7 @@ body.dark-mode .skill-item:hover {
 }
 
 body.dark-mode #contact {
-    background: var(--gradient-white-bg2);
+    background: transparent;
 }
 
 body.dark-mode .title {
@@ -1473,93 +1472,6 @@ body.dark-mode::-webkit-scrollbar-thumb:hover {
     background: #764ba2;
 }
 
-/* Responsive Design for Dark Mode Toggle */
-@media screen and (max-width: 768px) {
-    .dark-mode-toggle {
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .dark-mode-label {
-        width: 110px;
-        height: 55px;
-        padding: 0 8px;
-    }
-    
-    .toggle-ball {
-        width: 43px;
-        height: 43px;
-        top: 6px;
-        left: 6px;
-    }
-    
-    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-        transform: translateX(55px);
-    }
-    
-    .sun-icon,
-    .moon-icon {
-        font-size: 26px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .dark-mode-toggle {
-        bottom: 15px;
-        right: 15px;
-    }
-    
-    .dark-mode-label {
-        width: 100px;
-        height: 50px;
-        padding: 0 7px;
-    }
-    
-    .toggle-ball {
-        width: 40px;
-        height: 40px;
-        top: 5px;
-        left: 5px;
-    }
-    
-    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-        transform: translateX(50px);
-    }
-    
-    .sun-icon,
-    .moon-icon {
-        font-size: 24px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .dark-mode-toggle {
-        bottom: 10px;
-        right: 10px;
-    }
-    
-    .dark-mode-label {
-        width: 90px;
-        height: 45px;
-        padding: 0 6px;
-    }
-    
-    .toggle-ball {
-        width: 35px;
-        height: 35px;
-        top: 5px;
-        left: 5px;
-    }
-    
-    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-        transform: translateX(45px);
-    }
-    
-    .sun-icon,
-    .moon-icon {
-        font-size: 20px;
-    }
-}
 
 
   

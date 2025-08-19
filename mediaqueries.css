@@ -660,3 +660,178 @@
         color: black !important;
     }
 }
+/* Responsive Design for Dark Mode Toggle */
+@media screen and (max-width: 768px) {
+    .dark-mode-toggle {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .dark-mode-label {
+        width: 110px;
+        height: 55px;
+        padding: 0 8px;
+    }
+    
+    .toggle-ball {
+        width: 43px;
+        height: 43px;
+        top: 6px;
+        left: 6px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(55px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dark-mode-toggle {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .dark-mode-label {
+        width: 100px;
+        height: 50px;
+        padding: 0 7px;
+    }
+    
+    .toggle-ball {
+        width: 40px;
+        height: 40px;
+        top: 5px;
+        left: 5px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(50px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .dark-mode-toggle {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .dark-mode-label {
+        width: 90px;
+        height: 45px;
+        padding: 0 6px;
+    }
+    
+    .toggle-ball {
+        width: 35px;
+        height: 35px;
+        top: 5px;
+        left: 5px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(45px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 20px;
+    }
+}
+
+/* Responsive Design for Dark Mode Toggle */
+@media screen and (max-width: 768px) {
+    .dark-mode-toggle {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .dark-mode-label {
+        width: 110px;
+        height: 55px;
+        padding: 0 8px;
+    }
+    
+    .toggle-ball {
+        width: 43px;
+        height: 43px;
+        top: 6px;
+        left: 6px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(55px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dark-mode-toggle {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .dark-mode-label {
+        width: 100px;
+        height: 50px;
+        padding: 0 7px;
+    }
+    
+    .toggle-ball {
+        width: 40px;
+        height: 40px;
+        top: 5px;
+        left: 5px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(50px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .dark-mode-toggle {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .dark-mode-label {
+        width: 90px;
+        height: 45px;
+        padding: 0 6px;
+    }
+    
+    .toggle-ball {
+        width: 35px;
+        height: 35px;
+        top: 5px;
+        left: 5px;
+    }
+    
+    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+        transform: translateX(45px);
+    }
+    
+    .sun-icon,
+    .moon-icon {
+        font-size: 20px;
+    }
+}
