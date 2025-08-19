@@ -461,6 +461,7 @@
     .skills-container {
         padding: 1.5rem;
         gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
     
     .heading {
@@ -476,24 +477,44 @@
     .skills-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
-    .skill {
+    .skill-category {
         padding: 1.5rem;
     }
 
-    .percentage {
-        font-size: 2.5rem;
+    .category-title {
+        font-size: 1.3rem;
     }
 
-    .skill-name {
-        font-size: 1rem;
+    .skill-item {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
     }
 }
 
 @media screen and (max-width: 480px) {
     .skills-container {
         grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .skill-category {
+        padding: 1.2rem;
+    }
+
+    .category-title {
+        font-size: 1.2rem;
+    }
+
+    .category-icon i {
+        font-size: 1.5rem;
+    }
+
+    .skill-item {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
     }
 
     .heading {
@@ -602,7 +623,7 @@
     
     body.dark-mode .icon-services,
     body.dark-mode .project-card,
-    body.dark-mode .skill {
+    body.dark-mode .skill-category {
         border: 2px solid #fff;
     }
 }
