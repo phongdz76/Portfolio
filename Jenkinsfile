@@ -41,7 +41,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'Docker-Registry', toolName: 'Docker', url: 'https://index.docker.io/v1/') {
+                    withDockerRegistry(credentialsId: 'Docker_Login', toolName: 'Docker', url: 'https://index.docker.io/v1/') {
                         echo "####################### ${BLUE}Docker build${RESET_COLOR} #######################"
                         sh "docker build --pull -t ${IMAGE_NAME}:${IMAGE_LATEST_TAG} ."
                     }
@@ -52,7 +52,7 @@ pipeline {
         stage('Docker Push') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'Docker-Registry', toolName: 'Docker', url: 'https://index.docker.io/v1/') {
+                    withDockerRegistry(credentialsId: 'Docker_Login', toolName: 'Docker', url: 'https://index.docker.io/v1/') {
                         echo "####################### ${BLUE}Push Docker Image to Dockerhub Registry${RESET_COLOR} #######################"
                         sh "docker push ${IMAGE_NAME}:${IMAGE_LATEST_TAG}"
                     }
