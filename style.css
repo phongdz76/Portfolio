@@ -4,10 +4,40 @@
 *,
 *::before,
 *::after {
-    transition: background-color 0.3s ease, 
-                color 0.3s ease, 
-                border-color 0.3s ease, 
-                box-shadow 0.3s ease;
+    transition: background-color 0.4s ease, 
+                color 0.4s ease, 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease,
+                background 0.4s ease,
+                background-image 0.4s ease;
+}
+
+/* Enhanced transitions for specific elements */
+header,
+.home,
+.about,
+.allServices,
+.project,
+.blog,
+.skills-container,
+#contact,
+footer,
+.btn,
+.social-media a,
+.icon-services,
+.project-card,
+.skill,
+.contact-info-upper-container,
+.cvContent a,
+.readMore {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Text elements transition */
+h1, h2, h3, h4, h5, h6, p, span, a {
+    transition: color 0.4s ease, 
+                background 0.4s ease,
+                background-image 0.4s ease;
 }
 
 *{
@@ -178,15 +208,20 @@ section{
     font-weight: 300;
     text-transform: uppercase;
     font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
 }
 
 .hero-info h1{
     font-size: 3.5rem;
+    line-height: 1.2;
+    margin: 1rem 0;
 }
 
 .text-animate{
     width: 22.8rem;
     position: relative;
+    margin: 1.5rem 0;
 }
 
 .text-animate h2{
@@ -204,6 +239,9 @@ section{
     letter-spacing: 2px;
     position: relative;
     min-height: 2rem; /* Đảm bảo không bị nhảy layout */
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .text-animate h2::after{
@@ -219,7 +257,8 @@ section{
 .hero-info p{
    font-size: 15px;
     color: var(--font-color);
-    line-height: 1.5rem;
+    line-height: 1.6;
+    margin: 1.5rem 0;
 }
 
 .btn-box{

@@ -4,6 +4,49 @@
     --tablet-padding: 40px;
 }
 
+/* Role Lines Styling */
+.role-line {
+    display: block;
+    line-height: 1.3;
+    margin-bottom: 0.2rem;
+}
+
+/* Desktop: Display roles inline */
+@media (min-width: 992px) {
+    .role-line {
+        display: inline;
+        margin-right: 0.5rem;
+    }
+    
+    .role-line:not(:last-child)::after {
+        content: " ";
+    }
+}
+
+/* Tablet and Mobile: Display roles on separate lines */
+@media (max-width: 991px) {
+    .role-line {
+        display: block;
+        text-align: center;
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .role-line {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .role-line {
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+    }
+}
+
 /* Large Desktop (1200px and up) */
 @media (min-width: 1200px) {
     .home {
@@ -67,6 +110,11 @@
 
     .text-animate {
         width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .text-animate h2 {
+        line-height: 1.4;
     }
 
     .btn-box {
@@ -204,6 +252,8 @@
 
     .text-animate h2 {
         font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
     }
 
     .btn-box {
@@ -258,6 +308,12 @@
         font-size: 0.9rem;
     }
 
+    .text-animate h2 {
+        font-size: 1rem;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+    }
+
     .social-media {
         width: 100%;
         justify-content: center;
@@ -289,6 +345,23 @@
 
     .text-box p {
         font-size: 1rem;
+    }
+}
+
+/* Extra Small Mobile (400px and below) */
+@media (max-width: 400px) {
+    .role-line {
+        font-size: 0.8rem;
+        margin-bottom: 0.15rem;
+    }
+    
+    .text-animate h2 {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+    
+    .hero-info h1 {
+        font-size: 1.8rem;
     }
 }
 

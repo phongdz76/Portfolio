@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add ripple effect
         createRippleEffect();
         
+        // Add theme transition class for smooth effects
+        body.classList.add('theme-transitioning');
+        
         if (this.checked) {
             body.classList.add('dark-mode');
             localStorage.setItem('theme', 'dark');
@@ -28,8 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Animate elements sequentially
             animateElementsToTheme('dark');
             
+            // Update all elements with CSS variables
+            updateCSSVariables('dark');
+            
             setTimeout(() => {
                 body.style.transition = '';
+                body.classList.remove('theme-transitioning');
             }, 400);
         } else {
             body.classList.remove('dark-mode');
@@ -41,11 +48,52 @@ document.addEventListener('DOMContentLoaded', function() {
             // Animate elements sequentially
             animateElementsToTheme('light');
             
+            // Update all elements with CSS variables
+            updateCSSVariables('light');
+            
             setTimeout(() => {
                 body.style.transition = '';
+                body.classList.remove('theme-transitioning');
             }, 400);
         }
     });
+
+    // Function to update CSS variables for consistent theming
+    function updateCSSVariables(theme) {
+        const root = document.documentElement;
+        
+        if (theme === 'dark') {
+            root.style.setProperty('--bg-color', '#0c0c0c');
+            root.style.setProperty('--gradient-white-bg', 'linear-gradient(0deg, #1e1e1e 0%, #2d2d2d 51%, #404040 100%)');
+            root.style.setProperty('--gradient-color-bg', 'linear-gradient(180deg, rgba(102, 126, 234, 1) 0%, rgba(118, 75, 162, 1) 51%, rgba(76, 29, 149, 1) 100%)');
+            root.style.setProperty('--main-color', '#667eea');
+            root.style.setProperty('--font-color', '#e0e0e0');
+            root.style.setProperty('--hover-box-shadow', 'rgba(102, 126, 234, 0.3) 0px 10px 20px, rgba(118, 75, 162, 0.2) 0px 6px 6px');
+            root.style.setProperty('--gradient-white-bg2', 'linear-gradient(98deg, #2d2d2d 0%, #1e1e1e 100%)');
+        } else {
+            root.style.setProperty('--bg-color', '#f5e6d3');
+            root.style.setProperty('--gradient-white-bg', 'linear-gradient(0deg, #faf5f0 0%, #f5e6d3 51%, #f0d5b8 100%)');
+            root.style.setProperty('--gradient-color-bg', 'linear-gradient(180deg, rgba(220,75,35,1) 0%, rgba(180,50,25,1) 51%, rgba(140,35,15,1) 100%)');
+            root.style.setProperty('--main-color', '#DC4B23');
+            root.style.setProperty('--font-color', '#8B4513');
+            root.style.setProperty('--hover-box-shadow', 'rgba(220,75,35,0.3) 0px 10px 20px, rgba(180,50,25,0.2) 0px 6px 6px');
+            root.style.setProperty('--gradient-white-bg2', 'linear-gradient(98deg, #f0d5b8 0%, #faf5f0 100%)');
+        }
+        
+        // Force repaint of all elements that use CSS variables
+        const elementsWithVariables = document.querySelectorAll(
+            'header, .btn, .social-media a, .icon-services, .about-content h2, ' +
+            '.main-text .heading, .title, .contact-info-container a, .bg-icon span, ' +
+            '.readMore, span, .navlist li a:hover, .navlist li a.active'
+        );
+        
+        elementsWithVariables.forEach(element => {
+            element.style.transform = 'translateZ(0)'; // Force hardware acceleration
+            setTimeout(() => {
+                element.style.transform = '';
+            }, 50);
+        });
+    }
     
     // Create ripple effect when toggle is clicked
     function createRippleEffect() {
@@ -79,24 +127,54 @@ document.addEventListener('DOMContentLoaded', function() {
             '.hero-info',
             '.img-hero',
             '.about',
+            '.allServices',
             '.services',
             '.project',
             '.blog',
-            '#contact'
+            '.skills-container',
+            '#contact',
+            'footer',
+            '.social-media',
+            '.icon-services',
+            '.project-card',
+            '.skill',
+            '.btn',
+            '.contact-info-upper-container'
         ];
         
         elements.forEach((selector, index) => {
-            const element = document.querySelector(selector);
-            if (element) {
-                setTimeout(() => {
-                    element.style.transform = 'translateY(-5px)';
-                    element.style.transition = 'transform 0.2s ease';
-                    
+            const elementList = document.querySelectorAll(selector);
+            elementList.forEach((element, subIndex) => {
+                if (element) {
                     setTimeout(() => {
-                        element.style.transform = 'translateY(0)';
-                    }, 100);
-                }, index * 50);
-            }
+                        element.style.transform = 'translateY(-5px) scale(1.02)';
+                        element.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+                        element.style.opacity = '0.8';
+                        
+                        setTimeout(() => {
+                            element.style.transform = 'translateY(0) scale(1)';
+                            element.style.opacity = '1';
+                        }, 150);
+                        
+                        setTimeout(() => {
+                            element.style.transition = '';
+                        }, 300);
+                    }, (index * 30) + (subIndex * 10));
+                }
+            });
+        });
+        
+        // Animate text elements
+        const textElements = document.querySelectorAll('h1, h2, h3, p, span');
+        textElements.forEach((element, index) => {
+            setTimeout(() => {
+                element.style.transition = 'color 0.4s ease';
+                element.style.transform = 'scale(1.01)';
+                
+                setTimeout(() => {
+                    element.style.transform = 'scale(1)';
+                }, 100);
+            }, index * 5);
         });
     }
     
