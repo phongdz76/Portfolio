@@ -286,7 +286,6 @@ section{
     grid-template-rows: repeat(2,1fr);
     align-items: center;
     grid-gap: 4em;
-    background: var(--gradient-white-bg2);
 }
 
 .hero-info{
