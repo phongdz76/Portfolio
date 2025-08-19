@@ -21,6 +21,10 @@ pipeline {
         IMAGE_RELEASE_TAG = "${RELEASE}-${BUILD_NUMBER}"
         IMAGE_LATEST_TAG = "latest"
         IMAGE_BETA_TAG = "beta"
+
+        SERVER_USERNAME = "jso"
+        SERVER_IP = "10.0.1.80"
+        SERVER_CONNECTION = "${SERVER_USERNAME}" + " " + "${SERVER_IP}"
     }
 
     stages {
@@ -60,14 +64,14 @@ pipeline {
             }
         }
         
-        // stage('Deploy to server') {
-        //     steps {
-        //         sshagent(['production-srv']) {
-        //             sh "ssh -o StrictHostKeyChecking=no -l ${SERVER_CONNECTION}  'sudo docker stop ${APP_NAME} || true && sudo docker rm ${APP_NAME} || true'"
-        //             sh "ssh -o StrictHostKeyChecking=no -l ${SERVER_CONNECTION} 'sudo docker run -p 9463:9463 -d --name ${APP_NAME} --restart unless-stopped ${IMAGE_NAME}'"
-        //         }
-        //     }
-        // }
+        stage('Deploy to server') {
+            steps {
+                sshagent(['guests-ssh']) {
+                    sh "ssh -o StrictHostKeyChecking=no -l ${SERVER_CONNECTION}  'sudo docker stop ${APP_NAME} || true && sudo docker rm ${APP_NAME} || true'"
+                    sh "ssh -o StrictHostKeyChecking=no -l ${SERVER_CONNECTION} 'sudo docker run -p 8888:8888 -d --name ${APP_NAME} --restart unless-stopped ${IMAGE_NAME}'"
+                }
+            }
+        }
         
         // stage('Deploy to Kubernetes') {
         //     steps {
