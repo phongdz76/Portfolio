@@ -1,4 +1,4 @@
-FROM nginx:1-alpine3.18
+FROM nginx:stable-alpine3.21-perl
 COPY . /usr/share/nginx/html
 
 # Expose the port
