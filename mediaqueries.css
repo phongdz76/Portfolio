@@ -279,6 +279,30 @@
         }
     }
 
+    /* Dark mode class adjustments for mobile menu */
+    @media (max-width: 767px) {
+        body.dark-mode header .navlist {
+            background: rgba(0, 0, 0, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .navlist li a {
+            color: #fff;
+        }
+
+        body.dark-mode .navlist li a:hover,
+        body.dark-mode .navlist li a.active {
+            color: #667eea;
+        }
+
+        body.dark-mode .menu-icon .bar,
+        body.dark-mode .menu-icon::before,
+        body.dark-mode .menu-icon::after {
+            background: #fff;
+        }
+    }
+
     .hero-info h1 {
         font-size: 2.5rem;
     }
@@ -994,7 +1018,64 @@
     .floating-label textarea {
         padding: 20px 50px 20px 20px;
         font-size: 1rem;
-        border-radius: 12px;
+        border: 2px solid rgba(220, 75, 35, 0.2);
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .floating-label input:focus,
+    .floating-label textarea:focus {
+        border-color: var(--main-color);
+        background: rgba(255, 255, 255, 1);
+        color: #333;
+        box-shadow: 0 0 0 3px rgba(220, 75, 35, 0.1);
+        outline: none;
+    }
+    
+    .floating-label label {
+        color: rgba(139, 69, 19, 0.7);
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .floating-label input:focus + label,
+    .floating-label textarea:focus + label,
+    .floating-label input:valid + label,
+    .floating-label textarea:valid + label {
+        color: var(--main-color);
+        background: var(--bg-color);
+    }
+    
+    /* Dark mode specific styles for Large Desktop */
+    body.dark-mode .floating-label input,
+    body.dark-mode .floating-label textarea {
+        background: rgba(45, 45, 45, 0.95);
+        border-color: rgba(102, 126, 234, 0.3);
+        color: var(--font-color);
+    }
+    
+    body.dark-mode .floating-label input:focus,
+    body.dark-mode .floating-label textarea:focus,
+    body.dark-mode .floating-label input:valid,
+    body.dark-mode .floating-label textarea:valid {
+        background: rgba(55, 55, 55, 0.98);
+        border-color: var(--main-color);
+        color: var(--font-color);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    body.dark-mode .floating-label label {
+        color: rgba(224, 224, 224, 0.7);
+        background: rgba(30, 30, 30, 0.9);
+    }
+    
+    body.dark-mode .floating-label input:focus + label,
+    body.dark-mode .floating-label textarea:focus + label,
+    body.dark-mode .floating-label input:valid + label,
+    body.dark-mode .floating-label textarea:valid + label {
+        color: var(--main-color);
+        background: var(--bg-color);
     }
 }
 
@@ -1065,7 +1146,64 @@
     .floating-label textarea {
         padding: 18px 45px 18px 18px;
         font-size: 0.95rem;
+        border: 2px solid #e0e0e0;
         border-radius: 12px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .floating-label input:focus,
+    .floating-label textarea:focus {
+        border-color: var(--main-color);
+        background: rgba(255, 255, 255, 1);
+        color: #333;
+        box-shadow: 0 0 0 3px rgba(220, 75, 35, 0.1);
+        outline: none;
+    }
+    
+    .floating-label label {
+        color: #666;
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .floating-label input:focus + label,
+    .floating-label textarea:focus + label,
+    .floating-label input:valid + label,
+    .floating-label textarea:valid + label {
+        color: var(--main-color);
+        background: var(--bg-color);
+    }
+    
+    /* Dark mode specific styles for Desktop */
+    body.dark-mode .floating-label input,
+    body.dark-mode .floating-label textarea {
+        background: rgba(45, 45, 45, 0.95);
+        border-color: rgba(102, 126, 234, 0.3);
+        color: var(--font-color);
+    }
+    
+    body.dark-mode .floating-label input:focus,
+    body.dark-mode .floating-label textarea:focus,
+    body.dark-mode .floating-label input:valid,
+    body.dark-mode .floating-label textarea:valid {
+        background: rgba(55, 55, 55, 0.98);
+        border-color: var(--main-color);
+        color: var(--font-color);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    body.dark-mode .floating-label label {
+        color: rgba(224, 224, 224, 0.7);
+        background: rgba(30, 30, 30, 0.9);
+    }
+    
+    body.dark-mode .floating-label input:focus + label,
+    body.dark-mode .floating-label textarea:focus + label,
+    body.dark-mode .floating-label input:valid + label,
+    body.dark-mode .floating-label textarea:valid + label {
+        color: var(--main-color);
+        background: var(--bg-color);
     }
 }
 
@@ -1198,7 +1336,64 @@
     .floating-label textarea {
         padding: 16px 40px 16px 16px;
         font-size: 0.95rem;
+        border: 2px solid #e0e0e0;
         border-radius: 12px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .floating-label input:focus,
+    .floating-label textarea:focus {
+        border-color: var(--main-color);
+        background: rgba(255, 255, 255, 1);
+        color: #333;
+        box-shadow: 0 0 0 3px rgba(220, 75, 35, 0.1);
+        outline: none;
+    }
+    
+    .floating-label label {
+        color: #666;
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .floating-label input:focus + label,
+    .floating-label textarea:focus + label,
+    .floating-label input:valid + label,
+    .floating-label textarea:valid + label {
+        color: var(--main-color);
+        background: var(--bg-color);
+    }
+    
+    /* Dark mode specific styles for Tablet */
+    body.dark-mode .floating-label input,
+    body.dark-mode .floating-label textarea {
+        background: rgba(45, 45, 45, 0.95);
+        border-color: rgba(102, 126, 234, 0.3);
+        color: var(--font-color);
+    }
+    
+    body.dark-mode .floating-label input:focus,
+    body.dark-mode .floating-label textarea:focus,
+    body.dark-mode .floating-label input:valid,
+    body.dark-mode .floating-label textarea:valid {
+        background: rgba(55, 55, 55, 0.98);
+        border-color: var(--main-color);
+        color: var(--font-color);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    body.dark-mode .floating-label label {
+        color: rgba(224, 224, 224, 0.7);
+        background: rgba(30, 30, 30, 0.9);
+    }
+    
+    body.dark-mode .floating-label input:focus + label,
+    body.dark-mode .floating-label textarea:focus + label,
+    body.dark-mode .floating-label input:valid + label,
+    body.dark-mode .floating-label textarea:valid + label {
+        color: var(--main-color);
+        background: var(--bg-color);
     }
     
     .send-btn {
@@ -1363,7 +1558,8 @@
         font-size: 0.95rem;
         border: 2px solid #e0e0e0;
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
         transition: all 0.3s ease;
         box-sizing: border-box;
     }
@@ -1376,6 +1572,8 @@
     .floating-label input:focus,
     .floating-label textarea:focus {
         border-color: var(--main-color);
+        background: rgba(255, 255, 255, 1);
+        color: #333;
         box-shadow: 0 0 0 3px rgba(220, 75, 35, 0.1);
         outline: none;
     }
@@ -1409,6 +1607,38 @@
         color: var(--main-color);
         font-weight: 500;
         transform: translateY(-50%);
+        background: var(--bg-color);
+    }
+    
+    /* Dark mode specific styles for Mobile Large */
+    body.dark-mode .floating-label input,
+    body.dark-mode .floating-label textarea {
+        background: rgba(45, 45, 45, 0.95);
+        border-color: rgba(102, 126, 234, 0.3);
+        color: var(--font-color);
+    }
+    
+    body.dark-mode .floating-label input:focus,
+    body.dark-mode .floating-label textarea:focus,
+    body.dark-mode .floating-label input:valid,
+    body.dark-mode .floating-label textarea:valid {
+        background: rgba(55, 55, 55, 0.98);
+        border-color: var(--main-color);
+        color: var(--font-color);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    body.dark-mode .floating-label label {
+        color: rgba(224, 224, 224, 0.7);
+        background: rgba(30, 30, 30, 0.9);
+    }
+    
+    body.dark-mode .floating-label input:focus + label,
+    body.dark-mode .floating-label textarea:focus + label,
+    body.dark-mode .floating-label input:valid + label,
+    body.dark-mode .floating-label textarea:valid + label {
+        color: var(--main-color);
+        background: var(--bg-color);
     }
     
     .form-icon {
@@ -1628,7 +1858,8 @@
         font-size: 0.95rem;
         border: 2px solid #e0e0e0;
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
         transition: all 0.3s ease;
         box-sizing: border-box;
     }
@@ -1641,6 +1872,8 @@
     .floating-label input:focus,
     .floating-label textarea:focus {
         border-color: var(--main-color);
+        background: rgba(255, 255, 255, 1);
+        color: #333;
         box-shadow: 0 0 0 3px rgba(220, 75, 35, 0.1);
         outline: none;
     }
@@ -1674,6 +1907,38 @@
         color: var(--main-color);
         font-weight: 500;
         transform: translateY(-50%);
+        background: var(--bg-color);
+    }
+    
+    /* Dark mode specific styles for Mobile Small */
+    body.dark-mode .floating-label input,
+    body.dark-mode .floating-label textarea {
+        background: rgba(45, 45, 45, 0.95);
+        border-color: rgba(102, 126, 234, 0.3);
+        color: var(--font-color);
+    }
+    
+    body.dark-mode .floating-label input:focus,
+    body.dark-mode .floating-label textarea:focus,
+    body.dark-mode .floating-label input:valid,
+    body.dark-mode .floating-label textarea:valid {
+        background: rgba(55, 55, 55, 0.98);
+        border-color: var(--main-color);
+        color: var(--font-color);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    body.dark-mode .floating-label label {
+        color: rgba(224, 224, 224, 0.7);
+        background: rgba(30, 30, 30, 0.9);
+    }
+    
+    body.dark-mode .floating-label input:focus + label,
+    body.dark-mode .floating-label textarea:focus + label,
+    body.dark-mode .floating-label input:valid + label,
+    body.dark-mode .floating-label textarea:valid + label {
+        color: var(--main-color);
+        background: var(--bg-color);
     }
     
     .form-icon {
@@ -1789,11 +2054,27 @@
     .floating-label textarea {
         padding: 12px 30px 12px 12px;
         font-size: 0.9rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .floating-label input:focus,
+    .floating-label textarea:focus {
+        border-color: var(--main-color);
+        background: rgba(255, 255, 255, 1);
+        color: #333;
+        box-shadow: 0 0 0 3px rgba(220, 75, 35, 0.1);
+        outline: none;
     }
     
     .floating-label label {
         font-size: 0.8rem;
         left: 12px;
+        color: #666;
+        background: rgba(255, 255, 255, 0.9);
     }
     
     .floating-label input:focus + label,
@@ -1802,6 +2083,39 @@
     .floating-label textarea:valid + label {
         font-size: 0.7rem;
         left: 8px;
+        color: var(--main-color);
+        background: var(--bg-color);
+    }
+    
+    /* Dark mode specific styles for Extra Small Mobile */
+    body.dark-mode .floating-label input,
+    body.dark-mode .floating-label textarea {
+        background: rgba(45, 45, 45, 0.95);
+        border-color: rgba(102, 126, 234, 0.3);
+        color: var(--font-color);
+    }
+    
+    body.dark-mode .floating-label input:focus,
+    body.dark-mode .floating-label textarea:focus,
+    body.dark-mode .floating-label input:valid,
+    body.dark-mode .floating-label textarea:valid {
+        background: rgba(55, 55, 55, 0.98);
+        border-color: var(--main-color);
+        color: var(--font-color);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    body.dark-mode .floating-label label {
+        color: rgba(224, 224, 224, 0.7);
+        background: rgba(30, 30, 30, 0.9);
+    }
+    
+    body.dark-mode .floating-label input:focus + label,
+    body.dark-mode .floating-label textarea:focus + label,
+    body.dark-mode .floating-label input:valid + label,
+    body.dark-mode .floating-label textarea:valid + label {
+        color: var(--main-color);
+        background: var(--bg-color);
     }
     
     .send-btn {
@@ -1858,21 +2172,106 @@
         transform: none;
     }
     
+    /* Light mode default styles for better visibility */
+    .floating-label input,
+    .floating-label textarea {
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: #333 !important;
+        border: 2px solid #e0e0e0 !important;
+    }
+    
+    .floating-label input:focus,
+    .floating-label textarea:focus {
+        background: rgba(255, 255, 255, 1) !important;
+        color: #333 !important;
+        border-color: var(--main-color) !important;
+    }
+    
+    .floating-label label {
+        color: #666 !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+    }
+    
+    .floating-label input:focus + label,
+    .floating-label textarea:focus + label,
+    .floating-label input:valid + label,
+    .floating-label textarea:valid + label {
+        color: var(--main-color) !important;
+        background: var(--bg-color) !important;
+    }
+    
+    .form-icon {
+        color: #999 !important;
+    }
+    
+    .floating-label input:focus ~ .form-icon,
+    .floating-label textarea:focus ~ .form-icon {
+        color: var(--main-color) !important;
+    }
+    
     /* Dark mode adjustments for mobile */
     body.dark-mode .contact-card {
-        background: rgba(30, 30, 30, 0.9);
-        border: 1px solid rgba(102, 126, 234, 0.2);
+        background: rgba(45, 45, 45, 0.9) !important;
+        border: 1px solid rgba(102, 126, 234, 0.2) !important;
+        backdrop-filter: blur(20px);
+    }
+    
+    body.dark-mode .contact-card:hover {
+        background: rgba(55, 55, 55, 0.9) !important;
+        border-color: var(--main-color) !important;
     }
     
     body.dark-mode .contact-form-wrapper {
-        background: rgba(20, 20, 20, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(30, 30, 30, 0.9) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(30px);
     }
     
     body.dark-mode .floating-label input,
     body.dark-mode .floating-label textarea {
-        background: rgba(40, 40, 40, 0.9);
-        border-color: rgba(102, 126, 234, 0.3);
+        background: rgba(45, 45, 45, 0.95) !important;
+        color: var(--font-color) !important;
+        border: 2px solid rgba(102, 126, 234, 0.3) !important;
+    }
+    
+    body.dark-mode .floating-label input:focus,
+    body.dark-mode .floating-label textarea:focus,
+    body.dark-mode .floating-label input:valid,
+    body.dark-mode .floating-label textarea:valid {
+        background: rgba(55, 55, 55, 0.98) !important;
+        color: var(--font-color) !important;
+        border-color: var(--main-color) !important;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    body.dark-mode .floating-label label {
+        color: rgba(224, 224, 224, 0.7) !important;
+        background: rgba(30, 30, 30, 0.9) !important;
+    }
+    
+    body.dark-mode .floating-label input:focus + label,
+    body.dark-mode .floating-label textarea:focus + label,
+    body.dark-mode .floating-label input:valid + label,
+    body.dark-mode .floating-label textarea:valid + label {
+        color: var(--main-color) !important;
+        background: var(--bg-color) !important;
+    }
+    
+    body.dark-mode .form-icon {
+        color: rgba(102, 126, 234, 0.5) !important;
+    }
+    
+    body.dark-mode .floating-label input:focus ~ .form-icon,
+    body.dark-mode .floating-label textarea:focus ~ .form-icon {
+        color: var(--main-color) !important;
+    }
+    
+    body.dark-mode .contact-details h4 {
+        color: var(--font-color) !important;
+    }
+    
+    body.dark-mode .contact-details p {
+        color: var(--main-color) !important;
     }
 }
 
@@ -2054,6 +2453,70 @@
     .contact-card:hover,
     .send-btn:hover {
         transform: none;
+    }
+}
+
+/* Additional mobile form enhancements */
+@media (max-width: 991px) {
+    /* Ensure inputs are always visible and readable */
+    .floating-label input,
+    .floating-label textarea {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -webkit-text-fill-color: inherit;
+        -webkit-opacity: 1;
+        opacity: 1;
+    }
+    
+    /* Prevent zoom on iOS devices */
+    .floating-label input,
+    .floating-label textarea {
+        font-size: 16px;
+        max-width: 100%;
+    }
+    
+    /* Light mode default styles */
+    .floating-label input,
+    .floating-label textarea {
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: #333 !important;
+    }
+    
+    .floating-label input:focus,
+    .floating-label textarea:focus {
+        background: rgba(255, 255, 255, 1) !important;
+        color: #333 !important;
+    }
+    
+    .floating-label label {
+        color: #666 !important;
+    }
+    
+    /* Dark mode overrides */
+    body.dark-mode .floating-label input,
+    body.dark-mode .floating-label textarea {
+        background: rgba(45, 45, 45, 0.95) !important;
+        color: #e0e0e0 !important;
+        border-color: rgba(102, 126, 234, 0.3) !important;
+    }
+    
+    body.dark-mode .floating-label input:focus,
+    body.dark-mode .floating-label textarea:focus {
+        background: rgba(55, 55, 55, 0.98) !important;
+        color: #e0e0e0 !important;
+        border-color: var(--main-color) !important;
+    }
+    
+    body.dark-mode .floating-label label {
+        color: rgba(224, 224, 224, 0.7) !important;
+    }
+    
+    body.dark-mode .floating-label input:focus + label,
+    body.dark-mode .floating-label textarea:focus + label,
+    body.dark-mode .floating-label input:valid + label,
+    body.dark-mode .floating-label textarea:valid + label {
+        color: var(--main-color) !important;
     }
 }
 
