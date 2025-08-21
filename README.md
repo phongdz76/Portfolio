@@ -1,4 +1,3 @@
-# Portfolio
 # Portfolio Website - Phong Nguyen
 
 A modern, responsive portfolio website showcasing frontend/backend development skills with multiple sections, dark mode, animations, multi-language support, and contact form integration.
