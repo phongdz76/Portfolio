@@ -239,23 +239,24 @@
         
         /* Language toggle responsive adjustments */
         .language-toggle {
-            margin-right: 0.8rem;
+            margin-right: 0.2rem;
         }
         
         .language-btn {
-            padding: 8px 10px;
-            font-size: 14px;
-            gap: 6px;
-            border-radius: 5px;
+            min-width: 54px;
+            height: 38px;
+            padding: 0 8px;
+            gap: 5px;
+            font-size: 0.74rem;
         }
         
         .language-btn i {
-            font-size: 16px;
+            font-size: 1.2rem;
         }
         
         .language-btn #currentLang {
-            letter-spacing: 0.5px;
-            font-weight: 500;
+            letter-spacing: 0.45px;
+            font-weight: 700;
         }
     
         /* Ensure menu stays above other content */
@@ -352,23 +353,24 @@
     
     /* Language toggle for very small screens */
     .language-toggle {
-        margin-right: 0.5rem;
+        margin-right: 0.1rem;
     }
     
     .language-btn {
-        padding: 8px 10px;
-        font-size: 14px;
+        min-width: 50px;
+        height: 34px;
+        padding: 0 7px;
         gap: 4px;
-        border-radius: 5px;
+        font-size: 0.7rem;
     }
     
     .language-btn i {
-        font-size: 16px;
+        font-size: 1.05rem;
     }
     
     .language-btn #currentLang {
-        letter-spacing: 0.3px;
-        font-weight: 500;
+        letter-spacing: 0.4px;
+        font-weight: 700;
     }
 
     header .logo {
@@ -744,201 +746,28 @@
         transition-duration: 0.01ms !important;
     }
     
-    .dark-mode-toggle {
+    .theme-toggle,
+    .theme-toggle .sun-icon,
+    .theme-toggle .moon-icon {
         animation: none !important;
     }
 }
 
 /* Focus styles for accessibility */
-.dark-mode-checkbox:focus + .dark-mode-label {
+.theme-toggle:focus-visible {
     outline: 2px solid #667eea;
     outline-offset: 2px;
 }
 
 /* Print styles */
 @media print {
-    .dark-mode-toggle {
+    .theme-toggle {
         display: none !important;
     }
     
     body.dark-mode {
         background: white !important;
         color: black !important;
-    }
-}
-/* Responsive Design for Dark Mode Toggle */
-@media screen and (max-width: 768px) {
-    .dark-mode-toggle {
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .dark-mode-label {
-        width: 110px;
-        height: 55px;
-        padding: 0 8px;
-    }
-    
-    .toggle-ball {
-        width: 43px;
-        height: 43px;
-        top: 6px;
-        left: 6px;
-    }
-    
-    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-        transform: translateX(55px);
-    }
-    
-    .sun-icon,
-    .moon-icon {
-        font-size: 26px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .dark-mode-toggle {
-        bottom: 15px;
-        right: 15px;
-    }
-    
-    .dark-mode-label {
-        width: 100px;
-        height: 50px;
-        padding: 0 7px;
-    }
-    
-    .toggle-ball {
-        width: 40px;
-        height: 40px;
-        top: 5px;
-        left: 5px;
-    }
-    
-    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-        transform: translateX(50px);
-    }
-    
-    .sun-icon,
-    .moon-icon {
-        font-size: 24px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .dark-mode-toggle {
-        bottom: 10px;
-        right: 10px;
-    }
-    
-    .dark-mode-label {
-        width: 90px;
-        height: 45px;
-        padding: 0 6px;
-    }
-    
-    .toggle-ball {
-        width: 35px;
-        height: 35px;
-        top: 5px;
-        left: 5px;
-    }
-    
-    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-        transform: translateX(45px);
-    }
-    
-    .sun-icon,
-    .moon-icon {
-        font-size: 20px;
-    }
-}
-
-/* Responsive Design for Dark Mode Toggle */
-@media screen and (max-width: 768px) {
-    .dark-mode-toggle {
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .dark-mode-label {
-        width: 110px;
-        height: 55px;
-        padding: 0 8px;
-    }
-    
-    .toggle-ball {
-        width: 43px;
-        height: 43px;
-        top: 6px;
-        left: 6px;
-    }
-    
-    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-        transform: translateX(55px);
-    }
-    
-    .sun-icon,
-    .moon-icon {
-        font-size: 26px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .dark-mode-toggle {
-        bottom: 15px;
-        right: 15px;
-    }
-    
-    .dark-mode-label {
-        width: 100px;
-        height: 50px;
-        padding: 0 7px;
-    }
-    
-    .toggle-ball {
-        width: 40px;
-        height: 40px;
-        top: 5px;
-        left: 5px;
-    }
-    
-    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-        transform: translateX(50px);
-    }
-    
-    .sun-icon,
-    .moon-icon {
-        font-size: 24px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .dark-mode-toggle {
-        bottom: 10px;
-        right: 10px;
-    }
-    
-    .dark-mode-label {
-        width: 90px;
-        height: 45px;
-        padding: 0 6px;
-    }
-    
-    .toggle-ball {
-        width: 35px;
-        height: 35px;
-        top: 5px;
-        left: 5px;
-    }
-    
-    .dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-        transform: translateX(45px);
-    }
-    
-    .sun-icon,
-    .moon-icon {
-        font-size: 20px;
     }
 }
 /* Enhanced Contact Form Responsive Styles - Redesigned for perfect cross-platform consistency */
@@ -2517,6 +2346,44 @@
     body.dark-mode .floating-label input:valid + label,
     body.dark-mode .floating-label textarea:valid + label {
         color: var(--main-color) !important;
+    }
+}
+
+/* Keep theme toggle compact and stable in header on all breakpoints */
+.theme-toggle {
+    position: static;
+    margin: 0;
+}
+
+.right-header .theme-toggle {
+    margin-right: 0.2rem;
+}
+
+@media (max-width: 991px) {
+    .right-header .theme-toggle {
+        margin-right: 0;
+    }
+
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .theme-toggle .sun-icon,
+    .theme-toggle .moon-icon {
+        font-size: 1.55rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .theme-toggle {
+        width: 34px;
+        height: 34px;
+    }
+
+    .theme-toggle .sun-icon,
+    .theme-toggle .moon-icon {
+        font-size: 1.4rem;
     }
 }
 

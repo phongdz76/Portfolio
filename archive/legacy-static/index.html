@@ -42,6 +42,11 @@
                     <span id="currentLang">EN</span>
                 </button>
             </div>
+            <button id="themeToggle" class="theme-toggle" type="button" role="switch" aria-checked="false"
+                aria-label="Switch to dark mode" title="Switch to dark mode">
+                <i class="bx bx-sun sun-icon" aria-hidden="true"></i>
+                <i class="bx bx-moon moon-icon" aria-hidden="true"></i>
+            </button>
             <a href="#contact" class="btn" data-en="Let's Chat" data-vi="Liên hệ">Let's Chat <i
                     class="bx bx-message-dots"></i></a>
             <div class="menu-icon">
@@ -102,7 +107,7 @@
                 </div>
 
                 <div class="bg-icon">
-                    <a href="https://discord.gg/6CFmCtTS"><i class="bx bxl-discord"></i></a>
+                    <a href="https://discord.gg/rvseCNWE"><i class="bx bxl-discord"></i></a>
                     <span></span>
                 </div>
 
@@ -301,7 +306,7 @@
                 </div>
             </div>
 
-             <div class="project-card">
+            <div class="project-card">
                 <div class="project-image">
                     <img src="/images/project3.jpg" alt="">
                 </div>
@@ -363,6 +368,8 @@
                 <div class="skill-list">
                     <div class="skill-item">.NET</div>
                     <div class="skill-item">Node.js</div>
+                    <div class="skill-item">Express.js</div>
+                    <div class="skill-item">NestJS</div>
                 </div>
             </div>
 
@@ -398,6 +405,8 @@
                     <div class="skill-item">HTML5</div>
                     <div class="skill-item">CSS3</div>
                     <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">Next.js</div>
                 </div>
             </div>
 
@@ -425,15 +434,18 @@
             <div class="floating-shape shape-3"></div>
             <div class="floating-shape shape-4"></div>
         </div>
-        
+
         <div class="contact-container">
             <div class="contact-header">
                 <span class="section-subtitle" data-en="Get In Touch" data-vi="Liên Hệ">Get In Touch</span>
                 <h2 class="contact-title" data-en="Contact Me" data-vi="Liên hệ với tôi">Contact Me</h2>
-                <p class="contact-subtitle" data-en="Ready to bring your ideas to life? Drop me a message and let's create something amazing together!" data-vi="Sẵn sàng biến ý tưởng thành hiện thực? Gửi tin nhắn và cùng tạo ra điều tuyệt vời!">Ready to bring your ideas to life? Drop me a message and let's create something amazing together!</p>
+                <p class="contact-subtitle"
+                    data-en="Ready to bring your ideas to life? Drop me a message and let's create something amazing together!"
+                    data-vi="Sẵn sàng biến ý tưởng thành hiện thực? Gửi tin nhắn và cùng tạo ra điều tuyệt vời!">Ready
+                    to bring your ideas to life? Drop me a message and let's create something amazing together!</p>
                 <div class="divider"></div>
             </div>
-            
+
             <div class="contact-content">
                 <!-- Contact Info Cards -->
                 <div class="contact-info">
@@ -446,7 +458,7 @@
                             <p>nguyenhothanhphong5@gmail.com</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-card" data-aos="fade-right" data-aos-delay="200">
                         <div class="contact-icon">
                             <i class="bx bx-phone"></i>
@@ -456,18 +468,19 @@
                             <p>+84 931 429 277</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-card" data-aos="fade-right" data-aos-delay="300">
                         <div class="contact-icon">
                             <i class="bx bx-map"></i>
                         </div>
                         <div class="contact-details">
                             <h4 data-en="Location" data-vi="Địa Chỉ">Location</h4>
-                            <p data-en="Ho Chi Minh City, Vietnam" data-vi="TP. Hồ Chí Minh, Việt Nam">Ho Chi Minh City, Vietnam</p>
+                            <p data-en="Ho Chi Minh City, Vietnam" data-vi="TP. Hồ Chí Minh, Việt Nam">Ho Chi Minh City,
+                                Vietnam</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Enhanced Contact Form -->
                 <div class="contact-form-wrapper" data-aos="fade-left" data-aos-delay="400">
                     <form id="contact-form" class="modern-contact-form">
@@ -483,7 +496,7 @@
                                     <i class="bx bx-user"></i>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group floating-label">
                                 <input type="email" id="user_email" name="user_email" required autocomplete="email">
                                 <label for="user_email">
@@ -496,7 +509,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group floating-label full-width">
                             <input type="text" id="subject" name="subject" autocomplete="off">
                             <label for="subject">
@@ -507,7 +520,7 @@
                                 <i class="bx bx-bookmark"></i>
                             </div>
                         </div>
-                        
+
                         <div class="form-group floating-label full-width">
                             <textarea id="message" name="message" rows="1" required></textarea>
                             <label for="message">
@@ -519,7 +532,7 @@
                                 <i class="bx bx-message-dots"></i>
                             </div>
                         </div>
-                        
+
                         <button type="submit" class="send-btn">
                             <span class="btn-ripple"></span>
                             <span class="btn-text" data-en="Send Message" data-vi="Gửi Tin Nhắn">Send Message</span>
@@ -530,7 +543,7 @@
                             </div>
                         </button>
                     </form>
-                    
+
                     <!-- Enhanced Status Messages -->
                     <div id="status-message" class="status-message">
                         <div class="status-icon"></div>
@@ -545,7 +558,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Particles Animation -->
         <div class="particles-container">
             <div class="particle"></div>
@@ -555,16 +568,6 @@
             <div class="particle"></div>
         </div>
     </section>
-
-    <!-- Dark Mode Toggle -->
-    <div class="dark-mode-toggle">
-        <input type="checkbox" id="darkModeToggle" class="dark-mode-checkbox">
-        <label for="darkModeToggle" class="dark-mode-label">
-            <i class="bx bx-sun sun-icon"></i>
-            <i class="bx bx-moon moon-icon"></i>
-            <div class="toggle-ball"></div>
-        </label>
-    </div>
 
     <footer>
         <p>Copyright &#169; 2025 by <span>phongdz76</span></p>
