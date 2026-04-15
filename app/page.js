@@ -440,7 +440,7 @@ export default function Page() {
 
         <section
           id="contact"
-          className="relative isolate overflow-hidden py-16 sm:py-20"
+          className="relative isolate overflow-hidden scroll-mt-24 py-16 sm:scroll-mt-28 sm:py-20"
           style={{ background: "var(--surface-gradient)" }}
         >
           <div className="pointer-events-none absolute inset-0 -z-10">

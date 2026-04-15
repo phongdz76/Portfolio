@@ -14,12 +14,7 @@ export function AboutTextCard({ icon, text }) {
   );
 }
 
-export function ServiceCard({
-  icon,
-  gradientClass,
-  title,
-  description,
-}) {
+export function ServiceCard({ icon, gradientClass, title, description }) {
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-[20px] border border-white/80 bg-white/90 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_35px_rgba(0,0,0,0.12)] dark:border-white/10 dark:bg-[#2d2d2de6]">
       <div className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-gradient-to-br from-white/5 to-[var(--main-color)]/20 opacity-0 transition duration-300 group-hover:opacity-100" />
@@ -110,7 +105,7 @@ export function SkillCategoryCard({ icon, title, items }) {
 
 export function ContactInfoCard({ icon, title, value }) {
   return (
-    <article className="group relative flex items-center gap-4 overflow-hidden rounded-3xl border border-[var(--main-color)]/15 bg-white/85 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[var(--main-color)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.12)] dark:bg-[#2d2d2dcc]">
+    <article className="group relative flex items-start gap-4 overflow-hidden rounded-3xl border border-[var(--main-color)]/15 bg-white/85 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[var(--main-color)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.12)] sm:items-center dark:bg-[#2d2d2dcc]">
       <span className="pointer-events-none absolute -left-full top-0 h-full w-full bg-gradient-to-r from-transparent via-[var(--main-color)]/15 to-transparent transition-all duration-500 group-hover:left-full" />
       <div
         className="relative inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-2xl text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-6"
@@ -118,11 +113,11 @@ export function ContactInfoCard({ icon, title, value }) {
       >
         <i className={icon} aria-hidden="true" />
       </div>
-      <div className="relative">
+      <div className="relative min-w-0 flex-1">
         <h4 className="text-lg font-semibold text-[var(--font-color)] transition-colors duration-300 group-hover:text-[var(--main-color)]">
           {title}
         </h4>
-        <p className="mt-1 text-sm font-medium text-[var(--main-color)] sm:text-base">
+        <p className="mt-1 text-sm font-medium leading-6 text-[var(--main-color)] break-words [overflow-wrap:anywhere] sm:text-base">
           {value}
         </p>
       </div>
