@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "aos/dist/aos.css";
+
+:root {
+  --bg-color: #f5e6d3;
+  --surface-gradient: linear-gradient(0deg, #faf5f0 0%, #f5e6d3 51%, #f0d5b8 100%);
+  --main-gradient: linear-gradient(180deg, #dc4b23 0%, #b43219 51%, #8c230f 100%);
+  --main-color: #dc4b23;
+  --font-color: #8b4513;
+  color-scheme: light;
+}
+
+html.dark {
+  --bg-color: #0c0c0c;
+  --surface-gradient: linear-gradient(0deg, #1e1e1e 0%, #2d2d2d 51%, #404040 100%);
+  --main-gradient: linear-gradient(180deg, #667eea 0%, #764ba2 51%, #4c1d95 100%);
+  --main-color: #667eea;
+  --font-color: #e0e0e0;
+  color-scheme: dark;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg-color);
+  color: var(--font-color);
+  font-family: var(--font-poppins), sans-serif;
+  transition: background-color 0.45s ease, color 0.45s ease;
+}
+
+html.lang-vi body {
+  font-family: var(--font-be-vietnam-pro), sans-serif;
+}
+
+.ring-text-font {
+  font-family: var(--font-work-sans), sans-serif;
+}
+
+.role-line {
+  color: transparent;
+  -webkit-text-stroke: 0.5px var(--main-color);
+  background: var(--main-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: roleFade 0.55s ease forwards;
+}
+
+.animate-hero-float {
+  animation: heroFloat 4s ease-in-out infinite;
+}
+
+.contact-shape {
+  animation-name: shapeFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.contact-particle {
+  animation-name: particleUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes roleFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shapeFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-16px) rotate(160deg);
+  }
+}
+
+@keyframes particleUp {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  90% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-110vh) scale(0);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .animate-hero-float {
+    animation-duration: 4.8s;
+  }
+}
+
+@media (max-width: 768px) {
+  .role-line {
+    -webkit-text-stroke: 0.35px var(--main-color);
+  }
+
+  .animate-hero-float {
+    animation-duration: 5.3s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
