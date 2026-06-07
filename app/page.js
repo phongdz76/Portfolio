@@ -52,8 +52,16 @@ export default function Page() {
   });
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState({ type: "idle", message: "" });
+  const [aboutImageIndex, setAboutImageIndex] = useState(0);
 
   const t = useMemo(() => portfolioContent[language], [language]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAboutImageIndex((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -300,7 +308,7 @@ export default function Page() {
           <div data-sr="right" className="flex justify-center lg:justify-end">
             <div className="relative flex h-[290px] w-[290px] items-center justify-center sm:h-[360px] sm:w-[360px] lg:h-[500px] lg:w-[500px]">
               <img
-                src="/images/z5944286235729_301d791e77cc768cc3db60e586b99da8.jpg"
+                src="/images/anh1.jpg"
                 alt="Phong portrait"
                 className="relative z-10 h-[240px] w-[240px] rounded-full object-cover sm:h-[290px] sm:w-[290px] lg:h-[390px] lg:w-[390px]"
               />
@@ -352,11 +360,20 @@ export default function Page() {
               data-sr="right"
               className="flex items-center justify-center lg:justify-end"
             >
-              <div className="relative">
+              <div className="relative h-[340px] w-[260px] sm:h-[420px] sm:w-[320px]">
                 <img
                   src="/images/IMG_2614.JPG"
                   alt="Phong - Software Engineering Student"
-                  className="h-[340px] w-[260px] rounded-3xl object-cover shadow-[0_20px_35px_rgba(0,0,0,0.2)] sm:h-[420px] sm:w-[320px]"
+                  className={`absolute inset-0 h-full w-full rounded-3xl object-cover shadow-[0_20px_35px_rgba(0,0,0,0.2)] transition-opacity duration-1000 ${
+                    aboutImageIndex === 0 ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+                <img
+                  src="/images/z5944286235729_301d791e77cc768cc3db60e586b99da8.jpg"
+                  alt="Phong - Software Engineering Student"
+                  className={`absolute inset-0 h-full w-full rounded-3xl object-cover shadow-[0_20px_35px_rgba(0,0,0,0.2)] transition-opacity duration-1000 ${
+                    aboutImageIndex === 1 ? "opacity-100" : "opacity-0"
+                  }`}
                 />
                 <span className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full border-[3px] border-[var(--main-color)]/40" />
                 <span className="pointer-events-none absolute -bottom-6 -left-6 h-16 w-16 rounded-full bg-[radial-gradient(circle,var(--main-color)_2px,transparent_2px)] [background-size:12px_12px] opacity-40" />
