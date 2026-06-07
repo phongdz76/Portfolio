@@ -23,6 +23,9 @@ export const metadata = {
   title: "Portfolio - Phong Nguyen",
   description:
     "Personal portfolio migrated to Next.js App Router with Tailwind CSS and reusable components.",
+  icons: {
+    icon: "/images/anh1-rounded.png",
+  },
 };
 
 export default function RootLayout({ children }) {
