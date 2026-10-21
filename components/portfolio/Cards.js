@@ -93,7 +93,7 @@ export function SkillCategoryCard({ icon, title, items }) {
         {items.map((item) => (
           <span
             key={item}
-            className="block rounded-xl border-l-[3px] border-transparent bg-[var(--main-color)]/5 px-4 py-2 text-sm font-medium text-[var(--font-color)] transition-all duration-300 hover:translate-x-1 hover:border-[var(--main-color)] hover:bg-[var(--main-color)]/10 hover:text-[var(--main-color)]"
+            className="block rounded-xl bg-[var(--main-color)]/5 px-4 py-2 text-sm font-medium text-[var(--font-color)] transition-colors duration-200 hover:bg-[var(--main-color)]/15 hover:text-[var(--main-color)]"
           >
             {item}
           </span>

@@ -274,7 +274,7 @@ export default function Page() {
                 />
               </a>
               <a
-                href="/images/PhongNguyen_CV.pdf"
+                href="/images/CV_NguyenHoThanhPhong.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex min-w-[150px] items-center justify-center gap-2 rounded-lg border border-black/15 bg-white/80 px-4 py-2.5 text-sm font-semibold text-zinc-900 shadow-[0_3px_12px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.16)] dark:border-white/20 dark:bg-[#2d2d2de6] dark:text-zinc-100"
@@ -346,7 +346,7 @@ export default function Page() {
               </div>
 
               <a
-                href="/images/PhongNguyen_CV.pdf"
+                href="/images/CV_NguyenHoThanhPhong.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-7 inline-flex min-w-[150px] items-center justify-center gap-2 rounded-lg border border-black/15 bg-white/80 px-4 py-2.5 text-sm font-semibold text-zinc-900 shadow-[0_3px_12px_rgba(0,0,0,0.1)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.16)] dark:border-white/20 dark:bg-[#2d2d2de6] dark:text-zinc-100"
