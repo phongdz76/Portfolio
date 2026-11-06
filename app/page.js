@@ -447,7 +447,7 @@ export default function Page() {
                   <SkillCategoryCard
                     key={group.title.en}
                     icon={group.icon}
-                    title={group.title[language]}
+                    title={group.title.en}
                     items={group.items}
                   />
                 ))}
@@ -608,7 +608,11 @@ export default function Page() {
                       type="submit"
                       disabled={isSending}
                       className="inline-flex min-w-[200px] items-center justify-center gap-2 rounded-full border-2 border-transparent px-6 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(0,0,0,0.2)] transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-70"
-                      style={{ background: "var(--main-gradient)" }}
+                      style={{
+                        background: "var(--main-gradient)",
+                        backgroundOrigin: "border-box",
+                        backgroundRepeat: "no-repeat",
+                      }}
                     >
                       {isSending ? t.sending : t.send}
                       <i
