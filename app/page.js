@@ -335,7 +335,7 @@ export default function Page() {
                 align="left"
               />
 
-              <div className="mt-8 space-y-4">
+              <div className="mt-8 space-y-3">
                 {ABOUT_CARDS.map((card) => (
                   <AboutTextCard
                     key={card.icon}
@@ -422,6 +422,7 @@ export default function Page() {
                   key={project.title}
                   title={project.title}
                   image={project.image}
+                  imageFit={project.imageFit}
                   actions={project.actions}
                 />
               ))}

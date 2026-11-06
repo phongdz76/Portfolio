@@ -58,6 +58,10 @@ npm run dev
 
 Open: `http://localhost:3000`
 
+Development uses `.next-dev/`; production builds use `.next/`. These separate
+directories let `npm run build` run while the dev server is open without
+overwriting its compiled chunks.
+
 ## Production Build
 
 ```bash
