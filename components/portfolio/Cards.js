@@ -1,13 +1,10 @@
 export function AboutTextCard({ icon, text }) {
   return (
-    <article className="group flex items-start gap-4 rounded-2xl border-l-4 border-[var(--main-color)] bg-white/70 p-4 shadow-[0_8px_20px_rgba(0,0,0,0.08)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/85 hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)] dark:bg-[#2d2d2dcc] dark:hover:bg-[#363636dd]">
-      <div
-        className="mt-0.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xl text-white"
-        style={{ background: "var(--main-gradient)" }}
-      >
+    <article className="flex items-start gap-4 rounded-xl border border-black/10 bg-white/60 p-4 shadow-sm transition-colors duration-200 hover:border-[var(--main-color)] hover:bg-white/80 sm:p-5 dark:border-white/10 dark:bg-[#242424] dark:hover:border-[var(--main-color)] dark:hover:bg-[#292929]">
+      <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-black/5 bg-black/[0.03] text-xl text-[var(--main-color)] dark:border-white/5 dark:bg-white/5">
         <i className={icon} aria-hidden="true" />
       </div>
-      <p className="text-sm leading-7 text-[var(--font-color)] sm:text-base">
+      <p className="min-w-0 text-sm leading-7 text-[var(--font-color)] sm:text-base">
         {text}
       </p>
     </article>
@@ -37,7 +34,7 @@ export function ServiceCard({ icon, gradientClass, title, description }) {
   );
 }
 
-export function ProjectCard({ title, image, actions = [], link, label }) {
+export function ProjectCard({ title, image, imageFit = "cover", actions = [], link, label }) {
   const normalizedActions =
     Array.isArray(actions) && actions.length > 0
       ? actions
@@ -51,8 +48,14 @@ export function ProjectCard({ title, image, actions = [], link, label }) {
 
   return (
     <article className="rounded-3xl border border-black/10 bg-white p-4 shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.16)] dark:border-white/10 dark:bg-[#2d2d2d]">
-      <div className="overflow-hidden rounded-2xl">
-        <img src={image} alt={title} className="h-52 w-full object-cover" />
+      <div className="flex h-52 items-center overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-900">
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          className={`h-full w-full ${imageFit === "contain" ? "object-contain" : "object-cover"}`}
+        />
       </div>
       <h3 className="mt-4 text-center text-xl font-bold text-[#333] dark:text-zinc-100">
         {title}
