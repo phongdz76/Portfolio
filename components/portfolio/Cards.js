@@ -85,18 +85,18 @@ export function ProjectCard({ title, image, imageFit = "cover", actions = [], li
 
 export function SkillCategoryCard({ icon, title, items }) {
   return (
-    <article className="group relative overflow-hidden rounded-3xl border-2 border-[var(--main-color)]/10 bg-white/95 p-6 shadow-[0_10px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-2 hover:border-[var(--main-color)] hover:shadow-[0_14px_32px_rgba(0,0,0,0.12)] dark:bg-[#2d2d2de0]">
+    <article className="group relative overflow-hidden rounded-3xl border border-black/10 bg-white p-4 shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--main-color)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.16)] dark:border-white/10 dark:bg-[#2d2d2d] dark:hover:border-[var(--main-color)]">
       <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 bg-gradient-to-r from-transparent via-[var(--main-color)]/10 to-transparent transition-transform duration-500 group-hover:translate-x-[220%]" />
-      <div className="mb-4 flex items-center gap-3">
+      <div className="relative mb-4 flex items-start gap-3">
         <i
-          className={`${icon} text-3xl text-[var(--main-color)] transition-transform duration-300 group-hover:scale-110`}
+          className={`${icon} shrink-0 text-3xl text-[var(--main-color)] transition-transform duration-300 group-hover:scale-110`}
           aria-hidden="true"
         />
-        <h3 className="text-2xl font-bold text-[var(--font-color)] transition-colors duration-300 group-hover:text-[var(--main-color)]">
+        <h3 className="min-w-0 text-xl font-bold text-[#333] transition-colors duration-300 group-hover:text-[var(--main-color)] dark:text-zinc-100 dark:group-hover:text-[var(--main-color)]">
           {title}
         </h3>
       </div>
-      <div className="space-y-2">
+      <div className="relative space-y-2">
         {items.map((item) => (
           <span
             key={item}
