@@ -1,10 +1,14 @@
 export function AboutTextCard({ icon, text }) {
   return (
-    <article className="flex items-start gap-4 rounded-xl border border-black/10 bg-white/60 p-4 shadow-sm transition-colors duration-200 hover:border-[var(--main-color)] hover:bg-white/80 sm:p-5 dark:border-white/10 dark:bg-[#242424] dark:hover:border-[var(--main-color)] dark:hover:bg-[#292929]">
-      <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-black/5 bg-black/[0.03] text-xl text-[var(--main-color)] dark:border-white/5 dark:bg-white/5">
+    <article className="group relative flex items-start gap-4 overflow-hidden rounded-[20px] border border-white/80 bg-white/90 p-4 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_35px_rgba(0,0,0,0.12)] sm:p-5 dark:border-white/10 dark:bg-[#2d2d2de6]">
+      <span className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-white/5 to-[var(--main-color)]/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div
+        className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-xl text-white shadow-sm transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-105"
+        style={{ background: "var(--main-gradient)" }}
+      >
         <i className={icon} aria-hidden="true" />
       </div>
-      <p className="min-w-0 text-sm leading-7 text-[var(--font-color)] sm:text-base">
+      <p className="relative min-w-0 text-sm leading-7 text-[var(--font-color)] sm:text-base">
         {text}
       </p>
     </article>
